@@ -10,6 +10,9 @@ namespace Projet_Middleware
     {
         static void Main(string[] args)
         {
+            Console.Title = "Projet Middleware";
+            Console.WriteLine("~~~~~~ MIDDLEWARE ~~~~~~");
+            Console.ReadKey();
         }
     }
 }
