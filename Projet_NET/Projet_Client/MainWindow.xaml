@@ -5,7 +5,7 @@
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="186,87,0,0" TextWrapping="Wrap" Text="Pseudo" VerticalAlignment="Top" Width="151"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="186,115,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="151"/>
-        <Button Content="Lancer le test d'orientation" HorizontalAlignment="Left" Margin="186,143,0,0" VerticalAlignment="Top" Width="151"/>
+        <Button Content="Lancer le test d'orientation" HorizontalAlignment="Left" Margin="186,143,0,0" VerticalAlignment="Top" Width="151" Click="Button_Click"/>
         <Button Content="Admin" HorizontalAlignment="Left" Margin="432,288,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>

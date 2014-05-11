@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Projet_Client.Composant_de_communication;
 
 namespace Projet_Client
 {
@@ -23,6 +24,11 @@ namespace Projet_Client
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageManager mm = new MessageManager();
         }
     }
 }
