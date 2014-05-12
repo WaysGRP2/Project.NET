@@ -37,7 +37,8 @@ namespace Projet_Client
             msg.Data[0] = "crepinvcc@hotmail.fr";
             msg.Data[1] = "Corps du message";
             msg.Token = "20942948CU4209U";
-            MessageManager.StartClient(msg);
+            Message reponse = MessageManager.StartClient(msg);
+            this.resultTextBox.Text += reponse.Invoke + " : " + reponse.Statut.ToString();
         }
     }
 }

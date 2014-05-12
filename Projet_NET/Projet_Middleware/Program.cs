@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using Projet_Middleware.Composant_Serveur;
+using Projet_Middleware.Couche_métier.Composant_technique;
 
 namespace Projet_Middleware
 {

@@ -11,7 +11,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
 {
     class ReversibleEncryption
     {
-        private static string skey = "224829845928757285";
+        private static string skey = "22482984592";
 
         public static Message EncryptString(Message msg)
         {

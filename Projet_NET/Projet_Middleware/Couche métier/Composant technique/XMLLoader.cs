@@ -14,8 +14,8 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
     class XMLLoader
     {
         public enum CONFIG_TYPE { SQL_Server_Config, SMTP_Config };
-        public static string SQLSERVER_CONFIG_PATH = "ConfigFiles/SQLServerConfig.xml";
-        public static string SMTP_CONFIG_PATH = "ConfigFiles/SMTPConfig.xml";
+        public static string SQLSERVER_CONFIG_PATH = "../../ConfigFiles/SQLServerConfig.xml";
+        public static string SMTP_CONFIG_PATH = "../../ConfigFiles/SMTPConfig.xml";
 
         private CONFIG_TYPE type;
 
@@ -29,7 +29,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
             if (type == CONFIG_TYPE.SQL_Server_Config)
             {
                 string cnx = "";
-                ReversibleEncryption.DecryptFile(SQLSERVER_CONFIG_PATH);
+                //ReversibleEncryption.DecryptFile(SQLSERVER_CONFIG_PATH);
                 XmlDocument doc = new XmlDocument();
                 doc.Load(SQLSERVER_CONFIG_PATH);
 
@@ -39,7 +39,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
                 string uid = doc.DocumentElement.SelectSingleNode("/Config/Uid").InnerText;
                 string pwd = doc.DocumentElement.SelectSingleNode("/Config/Pwd").InnerText;
                 
-                ReversibleEncryption.EncryptFile(SQLSERVER_CONFIG_PATH);
+                //ReversibleEncryption.EncryptFile(SQLSERVER_CONFIG_PATH);
                 
                 cnx = "Driver={" + driver + "}; Server=" + server + "; DataBase=" + dataBase + "; Uid=" + uid + "; Pwd=" + pwd + ";";
                 
@@ -47,7 +47,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
             }
             else if (type == CONFIG_TYPE.SMTP_Config)
             {
-                ReversibleEncryption.DecryptFile(SMTP_CONFIG_PATH);
+                //ReversibleEncryption.DecryptFile(SMTP_CONFIG_PATH);
                 XmlDocument doc = new XmlDocument();
                 doc.Load(SMTP_CONFIG_PATH);
 
@@ -58,7 +58,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
                 string port = doc.DocumentElement.SelectSingleNode("/Config/Port").InnerText;
                 string enableSSL = doc.DocumentElement.SelectSingleNode("/Config/EnableSSL").InnerText;
                 
-                ReversibleEncryption.EncryptFile(SMTP_CONFIG_PATH);
+                //ReversibleEncryption.EncryptFile(SMTP_CONFIG_PATH);
 
                 SMTPConfig smtp = new SMTPConfig(address, username, password, host, Convert.ToInt32(port), bool.Parse(enableSSL));
                 
