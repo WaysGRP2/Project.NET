@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
 {
-    interface IObjetEnBase
+    abstract class IObjetEnBase
     {
-        int id;
+        private int id;
 
-        void SaveInBase();
-        void DeleteFromBase();
+        public void SaveInBase(){}
+        public void DeleteFromBase(){}
     }
 }

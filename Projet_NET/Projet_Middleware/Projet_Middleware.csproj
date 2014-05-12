@@ -47,11 +47,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MessageSerializable">
+    <Reference Include="MessageSerializable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MessageSerializable.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,13 +65,26 @@
     <Compile Include="Composant Serveur\EntreePlateforme.cs" />
     <Compile Include="Composant Serveur\MessageManager.cs" />
     <Compile Include="Couche métier\Composant technique\MD5Crypter.cs" />
-    <Compile Include="Couche métier\Composant technique\Question.cs" />
+    <Compile Include="Couche métier\Composant technique\Objets en base\IObjetEnBase.cs" />
+    <Compile Include="Couche métier\Composant technique\Objets en base\Metier.cs" />
+    <Compile Include="Couche métier\Composant technique\Objets en base\ReponseOrientation.cs" />
+    <Compile Include="Couche métier\Composant technique\Objets en base\QuestionOrientation.cs" />
+    <Compile Include="Couche métier\Composant technique\Objets en base\QuestionJeu.cs" />
+    <Compile Include="Couche métier\Composant technique\Objets en base\ReponseJeu.cs" />
     <Compile Include="Couche métier\Composant technique\ReversibleEncryption.cs" />
     <Compile Include="Couche métier\Composant technique\SMTPConfig.cs" />
     <Compile Include="Couche métier\Composant technique\SmtpMail.cs" />
     <Compile Include="Couche métier\Composant technique\XMLLoader.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\IWorkflow.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Envoi_Mail.cs" />
+    <Compile Include="Couche métier\Mappage\Mpg_Administrateurs.cs" />
+    <Compile Include="Couche métier\Mappage\Mpg_Joueurs.cs" />
+    <Compile Include="Couche métier\Mappage\Mpg_Metiers.cs" />
+    <Compile Include="Couche métier\Mappage\Mpg_Questions_Jeu.cs" />
+    <Compile Include="Couche métier\Mappage\Mpg_Questions_Orientation.cs" />
+    <Compile Include="Couche métier\Mappage\Mpg_Reponses_Jeu.cs" />
+    <Compile Include="Couche métier\Mappage\Mpg_Reponses_Orientation.cs" />
+    <Compile Include="Couche métier\Mappage\Mpg_Statistiques.cs" />
     <Compile Include="Groupe de processus\TaskProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,9 +123,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Couche métier\Mappage\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="ConfigFiles\SMTPConfig.xml" />
     <Content Include="ConfigFiles\SQLServerConfig.xml" />
