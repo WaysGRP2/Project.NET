@@ -27,7 +27,7 @@ namespace Projet_Middleware.Composant_d_accès_métier
                 string classeApp = msg.Invoke;// Invoke contient le nom du workflow a utiliser
 
                 Assembly assembly = Assembly.GetExecutingAssembly();
-                Type typeClasse = assembly.GetType(this.namaspaceWF + "." + classeApp);
+                Type typeClasse = assembly.GetType(this.namaspaceWF +  "." + classeApp);
                 if (typeClasse != null)
                 {
                     object classe = Activator.CreateInstance(typeClasse); // On instancie le bon workflow
