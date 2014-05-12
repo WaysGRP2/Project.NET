@@ -14,11 +14,7 @@ namespace Projet_Middleware
         {
             Console.Title = "Projet Middleware";
             Console.WriteLine("~~~~~~ MIDDLEWARE ~~~~~~");
-            MessageReceiver messageReceiver = new MessageReceiver();
-            Thread receiverThread = new Thread(messageReceiver.DoWork);
-            Console.ReadKey();
-            //MessageSender messageSender = new MessageSender();
-            //messageSender.Send("Test");
+            MessageManager.StartListening();
         }
     }
 }

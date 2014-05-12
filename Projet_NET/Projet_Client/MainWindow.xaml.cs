@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Projet_Client.Composant_de_communication;
+using System.Net.Sockets;
+using System.Net;
+using Projet_Client.Composant_de_communication;
 
 namespace Projet_Client
 {
@@ -28,7 +31,7 @@ namespace Projet_Client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageManager mm = new MessageManager();
+            MessageManager.StartClient();
         }
     }
 }
