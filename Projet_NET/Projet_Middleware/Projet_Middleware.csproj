@@ -63,7 +63,9 @@
     <Compile Include="Composant Serveur\EntreePlateforme.cs" />
     <Compile Include="Composant Serveur\MessageManager.cs" />
     <Compile Include="Couche métier\Composant technique\MD5Crypter.cs" />
+    <Compile Include="Couche métier\Composant technique\Question.cs" />
     <Compile Include="Couche métier\Composant technique\ReversibleEncryption.cs" />
+    <Compile Include="Couche métier\Composant technique\SMTPConfig.cs" />
     <Compile Include="Couche métier\Composant technique\SmtpMail.cs" />
     <Compile Include="Couche métier\Composant technique\XMLLoader.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\IWorkflow.cs" />
@@ -108,6 +110,10 @@
   <ItemGroup>
     <Folder Include="Couche métier\Mappage\" />
     <Folder Include="Groupe de processus\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConfigFiles\SMTPConfig.xml" />
+    <Content Include="ConfigFiles\SQLServerConfig.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

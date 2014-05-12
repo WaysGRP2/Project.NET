@@ -13,10 +13,13 @@ namespace Projet_Middleware.Composant_Serveur
     {
         public static Message Check(Message msg)
         {
+            List<string> authorizedApplications = new List<string>();
+            authorizedApplications.Add("Client");
+
             Message reponseNegative = msg;
             reponseNegative.Statut = false;
 
-            if ((msg.AppName != "Client") && (string.IsNullOrEmpty(msg.Invoke)))
+            if ((!authorizedApplications.Contains(msg.AppName)) && (string.IsNullOrEmpty(msg.Invoke)))
                 return reponseNegative;
 
             CAM cam = new CAM();

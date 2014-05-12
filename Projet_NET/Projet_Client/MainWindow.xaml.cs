@@ -10,13 +10,9 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Projet_Client.Composant_de_communication;
-using System.Net.Sockets;
-using System.Net;
-using Projet_Client.Composant_de_communication;
 using MessageSerializable;
+using Projet_Client.Composant_de_communication;
 
 namespace Projet_Client
 {

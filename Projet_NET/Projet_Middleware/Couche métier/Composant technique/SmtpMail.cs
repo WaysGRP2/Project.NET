@@ -6,23 +6,24 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Mail;
 using MessageSerializable;
+using Projet_Middleware.Couche_métier.Composant_technique;
 
 namespace Projet_Middleware.Couche_métier.Composant_technique
 {
     class SmtpMail
     {
-        static private string MAIL = "exiacesiways@outlook.com";
-        static private string MAIL_USERNAME = "exiacesiways@outlook.com";
-        static private string MAIL_PASSWORD = "Ways2014A2";
         private MailMessage message;
         private SmtpClient smtp;
         private NetworkCredential basicCredential;
+        private SMTPConfig config;
 
         public SmtpMail()
         {
             message = new MailMessage();
             smtp = new SmtpClient();
-            basicCredential = new NetworkCredential(MAIL_USERNAME, MAIL_PASSWORD);
+            XMLLoader xml = new XMLLoader(XMLLoader.CONFIG_TYPE.SMTP_Config);
+            config = (SMTPConfig)xml.LoadConfig();
+            basicCredential = new NetworkCredential(config.Username, config.Password);
             smtp.UseDefaultCredentials = false;
             smtp.Credentials = basicCredential;
         }
@@ -31,7 +32,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
         {
             message.To.Add((string)oMsg.Data[0]);
             message.Subject = "JPO Exia Cesi";
-            message.From = new System.Net.Mail.MailAddress(SmtpMail.MAIL, "Exia Cesi");
+            message.From = new System.Net.Mail.MailAddress(config.Address, "Exia Cesi");
             if ((string)oMsg.Data[1] == null)
             {
                 oMsg.Statut = false;
@@ -42,9 +43,9 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
                 message.Body = (string)oMsg.Data[1];
             }
 
-            smtp.Host = "smtp.live.com";
-            smtp.Port = 587;
-            smtp.EnableSsl = true;
+            smtp.Host = config.Host;
+            smtp.Port = config.Port;
+            smtp.EnableSsl = config.EnableSSL;
             smtp.Send(message);
 
             oMsg.Statut = true;

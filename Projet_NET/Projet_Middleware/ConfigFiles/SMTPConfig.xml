@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Config>
+  <Address>exiacesiways@outlook.com</Address>
+  <Username>exiacesiways@outlook.com</Username>
+  <Password>Ways2014A2</Password>
+  <Host>smtp.live.com</Host>
+  <Port>587</Port>
+  <EnableSSL>True</EnableSSL>
+</Config>
