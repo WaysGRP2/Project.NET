@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Net;
 using System.Threading;
+using Projet_Middleware.Couche_métier.Composant_technique;
+using Projet_Middleware.Composant_Serveur;
 
 namespace Projet_Middleware.Composant_Serveur
 {
@@ -18,6 +20,7 @@ namespace Projet_Middleware.Composant_Serveur
         {
             // Data buffer for incoming data.
             byte[] bytes = new Byte[1024];
+            Message message;
 
             // Establish the local endpoint for the socket.
             // Dns.GetHostName returns the name of the 
@@ -49,21 +52,19 @@ namespace Projet_Middleware.Composant_Serveur
                     while (true)
                     {
                         bytes = new byte[1024];
-                        int bytesRec = handler.Receive(bytes);
-                        data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
-                        if (data.IndexOf("<EOF>") > -1)
-                        {
-                            break;
-                        }
+                        handler.Receive(bytes);
+                        message = Message.GetMessageFromByteArray(bytes);
+                        break;
                     }
 
                     // Show the data on the console.
-                    Console.WriteLine("Text received : {0}", data);
+                    Console.WriteLine("Task requested : ", message.Invoke);
 
-                    // Echo the data back to the client.
-                    byte[] msg = Encoding.ASCII.GetBytes(data);
+                    Message reponse = EntreePlateforme.Check(message);
 
-                    handler.Send(msg); // reponse
+                    // Send the reponse to the client.
+
+                    handler.Send(reponse.ToByteArray()); // reponse
                     handler.Shutdown(SocketShutdown.Both);
                     handler.Close();
                 }

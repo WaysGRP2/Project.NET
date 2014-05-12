@@ -8,5 +8,6 @@ namespace Projet_Middleware.Service_étendu
 {
     class CAD
     {
+
     }
 }
