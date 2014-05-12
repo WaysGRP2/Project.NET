@@ -59,7 +59,7 @@ namespace Projet_Middleware.Composant_Serveur
                     }
 
                     // Show the data on the console.
-                    Console.WriteLine("Task requested : ", message.Invoke);
+                    Console.WriteLine("Task requested : " + message.Invoke);
 
                     Message reponse = EntreePlateforme.Check(message);
 

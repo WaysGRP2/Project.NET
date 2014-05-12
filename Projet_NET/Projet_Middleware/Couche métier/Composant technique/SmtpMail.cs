@@ -43,7 +43,8 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
             }
 
             smtp.Host = "smtp.live.com";
-            smtp.Port = 25;
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
             smtp.Send(message);
 
             oMsg.Statut = true;
