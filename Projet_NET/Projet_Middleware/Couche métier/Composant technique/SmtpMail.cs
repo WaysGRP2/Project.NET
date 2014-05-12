@@ -30,26 +30,35 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
 
         public Message send(Message oMsg)
         {
-            message.To.Add((string)oMsg.Data[0]);
-            message.Subject = "JPO Exia Cesi";
-            message.From = new System.Net.Mail.MailAddress(config.Address, "Exia Cesi");
-            if ((string)oMsg.Data[1] == null)
+            try
             {
+                message.To.Add((string)oMsg.Data[0]);
+                message.Subject = "JPO Exia Cesi";
+                message.From = new System.Net.Mail.MailAddress(config.Address, "Exia Cesi");
+                if ((string)oMsg.Data[1] == null)
+                {
+                    oMsg.Statut = false;
+                    return oMsg;
+                }
+                else
+                {
+                    message.Body = (string)oMsg.Data[1];
+                }
+
+                smtp.Host = config.Host;
+                smtp.Port = config.Port;
+                smtp.EnableSsl = config.EnableSSL;
+                smtp.Send(message);
+
+                oMsg.Statut = true;
+                return oMsg;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERREUR :" + ex.Message);
                 oMsg.Statut = false;
                 return oMsg;
             }
-            else
-            {
-                message.Body = (string)oMsg.Data[1];
-            }
-
-            smtp.Host = config.Host;
-            smtp.Port = config.Port;
-            smtp.EnableSsl = config.EnableSSL;
-            smtp.Send(message);
-
-            oMsg.Statut = true;
-            return oMsg;
         }
     }
 }

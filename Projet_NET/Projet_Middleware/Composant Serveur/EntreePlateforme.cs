@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Projet_Middleware.Composant_d_accès_métier;
 using Projet_Middleware.Couche_métier.Composant_technique;
 using MessageSerializable;
+using Projet_Middleware.Groupe_de_processus;
 
 namespace Projet_Middleware.Composant_Serveur
 {
@@ -22,8 +23,8 @@ namespace Projet_Middleware.Composant_Serveur
             if ((!authorizedApplications.Contains(msg.AppName)) && (string.IsNullOrEmpty(msg.Invoke)))
                 return reponseNegative;
 
-            CAM cam = new CAM();
-            Message reponse = cam.ExecWF(msg);
+            TaskProvider taskProvider = new TaskProvider();
+            Message reponse = taskProvider.ExecTask(msg);
             return reponse;
         }
     }

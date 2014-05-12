@@ -63,6 +63,8 @@
     <Compile Include="Composant de communication\MessageManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Composant de communication\Task.cs" />
+    <Compile Include="Composant de travail\CT_EnvoyerMail.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -93,7 +95,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Composant de travail\" />
     <Folder Include="Composant utilisateur\" />
   </ItemGroup>
   <ItemGroup>

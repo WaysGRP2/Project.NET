@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MessageSerializable;
 using Projet_Client.Composant_de_communication;
+using Projet_Client.Composant_de_travail;
 
 namespace Projet_Client
 {
@@ -28,17 +29,8 @@ namespace Projet_Client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Message msg = new Message();
-            msg.AppName = "Client";
-            msg.Invoke = "WF_Envoi_Mail";
-            msg.PSecurity = "A faire";
-            msg.Statut = false;
-            msg.Info = "J'essaie d'envoyer un mail";
-            msg.Data[0] = "crepinvcc@hotmail.fr";
-            msg.Data[1] = "Corps du message";
-            msg.Token = "20942948CU4209U";
-            Message reponse = MessageManager.StartClient(msg);
-            this.resultTextBox.Text += reponse.Invoke + " : " + reponse.Statut.ToString();
+            CT_EnvoyerMail work = new CT_EnvoyerMail();
+            work.Exec("crepinvcc@hotmail.com");
         }
     }
 }

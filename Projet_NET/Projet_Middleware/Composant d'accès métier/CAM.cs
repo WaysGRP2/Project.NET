@@ -31,8 +31,10 @@ namespace Projet_Middleware.Composant_d_accès_métier
                 if (typeClasse != null)
                 {
                     object classe = Activator.CreateInstance(typeClasse); // On instancie le bon workflow
-                    ((IWorkflow)classe).Exec(msg); // Et on l'execute
+                    msg = ((IWorkflow)classe).Exec(msg); // Et on l'execute
                 }
+                else
+                    msg.Statut = false;
             }
             return msg;
         }

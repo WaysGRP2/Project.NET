@@ -20,7 +20,6 @@ namespace Projet_Middleware.Couche_métier.Contrôleur_de_workflow
         public Message Exec(Message msg)
         {
             mail.send(msg);
-            msg.Statut = true;
             return msg;
         }
     }
