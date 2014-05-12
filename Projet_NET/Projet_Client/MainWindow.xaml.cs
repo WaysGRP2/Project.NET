@@ -30,7 +30,9 @@ namespace Projet_Client
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             CT_EnvoyerMail work = new CT_EnvoyerMail();
-            work.Exec("crepinvcc@hotmail.com");
+            Message reponse = work.Exec("crepinvcc@hotmail.com");
+
+            this.resultTextBox.Text = "Tâche :" + reponse.Invoke + "    Réussi :" +reponse.Statut.ToString() + "\n";
         }
     }
 }

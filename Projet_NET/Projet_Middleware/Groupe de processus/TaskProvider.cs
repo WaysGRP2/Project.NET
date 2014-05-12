@@ -24,6 +24,10 @@ namespace Projet_Middleware.Groupe_de_processus
 
 
             Message reponse = this.cam.ExecWF(msg);
+
+            if (reponse.Invoke == "WF_Envoi_Mail")
+                reponse.Invoke = "Envoyer_Mail";
+
             return reponse;
         }
     }
