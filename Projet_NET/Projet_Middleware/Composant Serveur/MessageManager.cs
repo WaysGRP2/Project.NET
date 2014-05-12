@@ -8,6 +8,7 @@ using System.Net;
 using System.Threading;
 using Projet_Middleware.Couche_métier.Composant_technique;
 using Projet_Middleware.Composant_Serveur;
+using MessageSerializable;
 
 namespace Projet_Middleware.Composant_Serveur
 {

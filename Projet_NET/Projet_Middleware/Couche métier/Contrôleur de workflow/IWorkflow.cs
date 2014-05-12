@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Projet_Middleware.Couche_métier.Composant_technique;
+using MessageSerializable;
 
 namespace Projet_Middleware.Couche_métier.Contrôleur_de_workflow
 {

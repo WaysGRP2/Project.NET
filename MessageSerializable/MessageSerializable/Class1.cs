@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
-namespace Projet_Client.Composant_de_communication
+namespace MessageSerializable
 {
     [Serializable()]
-    class Message : ISerializable
+    public class Message : ISerializable
     {
         private string appName;
         private string invoke;
@@ -27,7 +24,7 @@ namespace Projet_Client.Composant_de_communication
             this.pSecurity = "";
             this.statut = false;
             this.info = "";
-            this.data = null;
+            this.data = new object[10];
             this.token = "";
         }
 

@@ -47,6 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MessageSerializable">
+      <HintPath>..\MessageSerializable.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -60,7 +63,6 @@
     <Compile Include="Composant Serveur\EntreePlateforme.cs" />
     <Compile Include="Composant Serveur\MessageManager.cs" />
     <Compile Include="Couche métier\Composant technique\MD5Crypter.cs" />
-    <Compile Include="Couche métier\Composant technique\Message.cs" />
     <Compile Include="Couche métier\Composant technique\ReversibleEncryption.cs" />
     <Compile Include="Couche métier\Composant technique\SmtpMail.cs" />
     <Compile Include="Couche métier\Composant technique\XMLLoader.cs" />

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Projet_Middleware.Composant_d_accès_métier;
 using Projet_Middleware.Couche_métier.Composant_technique;
+using MessageSerializable;
 
 namespace Projet_Middleware.Composant_Serveur
 {
@@ -15,7 +16,7 @@ namespace Projet_Middleware.Composant_Serveur
             Message reponseNegative = msg;
             reponseNegative.Statut = false;
 
-            if ((msg.AppName != "Client") && (string.IsNullOrEmpty(msg.Invoke)) && (msg.Invoke[0] != "W") && (msg.Invoke[1] != "F"))
+            if ((msg.AppName != "Client") && (string.IsNullOrEmpty(msg.Invoke)))
                 return reponseNegative;
 
             CAM cam = new CAM();

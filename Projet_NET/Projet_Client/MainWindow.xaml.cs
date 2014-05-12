@@ -16,6 +16,7 @@ using Projet_Client.Composant_de_communication;
 using System.Net.Sockets;
 using System.Net;
 using Projet_Client.Composant_de_communication;
+using MessageSerializable;
 
 namespace Projet_Client
 {
@@ -31,7 +32,16 @@ namespace Projet_Client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageManager.StartClient();
+            Message msg = new Message();
+            msg.AppName = "Client";
+            msg.Invoke = "WF_Envoi_Mail";
+            msg.PSecurity = "A faire";
+            msg.Statut = false;
+            msg.Info = "J'essaie d'envoyer un mail";
+            msg.Data[0] = "crepinvcc@hotmail.fr";
+            msg.Data[1] = "Corps du message";
+            msg.Token = "20942948CU4209U";
+            MessageManager.StartClient(msg);
         }
     }
 }

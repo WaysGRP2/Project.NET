@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using Projet_Middleware.Couche_métier.Composant_technique;
 using Projet_Middleware.Couche_métier.Contrôleur_de_workflow;
+using MessageSerializable;
 
 namespace Projet_Middleware.Composant_d_accès_métier
 {

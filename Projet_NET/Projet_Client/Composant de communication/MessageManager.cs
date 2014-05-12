@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Net;
+using MessageSerializable;
 
 namespace Projet_Client.Composant_de_communication
 {
     class MessageManager
     {
-        public static void StartClient()
+        public static Message StartClient(Message msg)
         {
             // Data buffer for incoming data.
             byte[] bytes = new byte[1024];
@@ -36,36 +37,41 @@ namespace Projet_Client.Composant_de_communication
                     Console.WriteLine("Socket connected to {0}",
                         sender.RemoteEndPoint.ToString());
 
-                    // Encode the data string into a byte array.
-                    byte[] msg = Encoding.ASCII.GetBytes("This is a test<EOF>");
+                    // Encode the message into a byte array.
+                    byte[] msgBytes = msg.ToByteArray();
 
                     // Send the data through the socket.
-                    int bytesSent = sender.Send(msg);
+                    int bytesSent = sender.Send(msgBytes);
 
                     // Receive the response from the remote device.
                     int bytesRec = sender.Receive(bytes);
-                    Console.WriteLine("Echoed test = {0}",
-                        Encoding.ASCII.GetString(bytes, 0, bytesRec));
+                    Message reponse = Message.GetMessageFromByteArray(bytes);
 
                     // Release the socket.
                     sender.Shutdown(SocketShutdown.Both);
                     sender.Close();
-
+                    return reponse;
                 }
                 catch (ArgumentNullException ane)
                 {
                     Console.WriteLine("ArgumentNullException : " + ane.ToString());
                     System.Windows.MessageBox.Show("ArgumentNullException : " + ane.ToString());
+                    msg.Statut = false;
+                    return msg;
                 }
                 catch (SocketException se)
                 {
                     Console.WriteLine("SocketException : {0}", se.ToString());
                     System.Windows.MessageBox.Show("SocketException : " + se.ToString());
+                    msg.Statut = false;
+                    return msg;
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine("Unexpected exception : {0}", e.ToString());
                     System.Windows.MessageBox.Show("Unexpected exception : " + e.ToString());
+                    msg.Statut = false;
+                    return msg;
                 }
 
             }
@@ -73,6 +79,8 @@ namespace Projet_Client.Composant_de_communication
             {
                 Console.WriteLine(e.ToString());
                 System.Windows.MessageBox.Show(e.ToString());
+                msg.Statut = false;
+                return msg;
             }
         }
     }
