@@ -65,7 +65,8 @@
     <Compile Include="Composant Serveur\EntreePlateforme.cs" />
     <Compile Include="Composant Serveur\MessageManager.cs" />
     <Compile Include="Couche métier\Composant technique\MD5Crypter.cs" />
-    <Compile Include="Couche métier\Composant technique\Objets en base\IObjetEnBase.cs" />
+    <Compile Include="Couche métier\Composant technique\Objets en base\Joueur.cs" />
+    <Compile Include="Couche métier\Composant technique\Objets en base\ObjetEnBase.cs" />
     <Compile Include="Couche métier\Composant technique\Objets en base\Metier.cs" />
     <Compile Include="Couche métier\Composant technique\Objets en base\ReponseOrientation.cs" />
     <Compile Include="Couche métier\Composant technique\Objets en base\QuestionOrientation.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Couche métier\Composant technique\XMLLoader.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\IWorkflow.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Envoi_Mail.cs" />
+    <Compile Include="Couche métier\Contrôleur de workflow\WF_Get_Classement.cs" />
     <Compile Include="Couche métier\Mappage\Mpg_Administrateurs.cs" />
     <Compile Include="Couche métier\Mappage\Mpg_Joueurs.cs" />
     <Compile Include="Couche métier\Mappage\Mpg_Metiers.cs" />

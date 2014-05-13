@@ -15,24 +15,24 @@ using MessageSerializable;
 using Projet_Client.Composant_de_communication;
 using Projet_Client.Composant_de_travail;
 
-namespace Projet_Client
+namespace Projet_Client.Composant_utilisateur
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour Fenetre_Accueil.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Fenetre_Accueil : Window
     {
-        public MainWindow()
+        public Fenetre_Accueil()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void SendMailButton_Click(object sender, RoutedEventArgs e)
         {
             CT_EnvoyerMail work = new CT_EnvoyerMail();
             Message reponse = work.Exec("crepinvcc@hotmail.com");
 
-            this.resultTextBox.Text = "Tâche :" + reponse.Invoke + "    Réussi :" +reponse.Statut.ToString() + "\n";
+            this.DebugTextBlock.Text = "Tâche :" + reponse.Invoke + "    Réussi :" + reponse.Statut.ToString() + "\n";
         }
     }
 }

@@ -65,8 +65,8 @@
   <ItemGroup>
     <Compile Include="Composant de communication\Task.cs" />
     <Compile Include="Composant de travail\CT_EnvoyerMail.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Composant utilisateur\Fenetre_Accueil.xaml.cs">
+      <DependentUpon>Fenetre_Accueil.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -94,11 +94,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Composant utilisateur\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Composant utilisateur\Fenetre_Accueil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

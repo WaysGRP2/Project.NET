@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
 {
-    class QuestionJeu : IObjetEnBase
+    class QuestionJeu : ObjetEnBase
     {
         public int id;
         private string question;

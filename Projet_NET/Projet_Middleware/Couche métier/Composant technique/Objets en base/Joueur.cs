@@ -6,21 +6,24 @@ using System.Threading.Tasks;
 
 namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
 {
-    class Metier : ObjetEnBase
+    class Joueur : ObjetEnBase
     {
         public int id;
         private string nom;
+        private int score;
 
-        public Metier(int id, string nom)
+        public Joueur(int id, string nom, int score)
         {
             this.id = id;
             this.nom = nom;
+            this.score = score;
         }
 
-        public Metier(string nom)
+        public Joueur(string nom, int score)
         {
             this.id = -1;
             this.nom = nom;
+            this.score = score;
         }
 
         public void SaveInBase()
@@ -44,6 +47,12 @@ namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
         {
             get { return nom; }
             set { nom = value; }
+        }
+
+        public int Score
+        {
+            get { return score; }
+            set { score = value; }
         }
     }
 }
