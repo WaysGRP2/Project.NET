@@ -55,7 +55,7 @@ namespace Projet_Middleware.Service_étendu
             {
                 foreach (ProcedureParameter param in procedure.Parameters)
                 {
-                    cmd.Parameters.Add(new OleDbParameter(param.Name, param.Type));
+                    cmd.Parameters.Add(new OleDbParameter(param.Name, param.Type)).Value = param.Value;
                 }
             }
 

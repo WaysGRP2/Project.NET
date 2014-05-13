@@ -10,11 +10,13 @@ namespace Projet_Middleware.Couche_métier.Mappage
     {
         private string name;
         private System.Data.OleDb.OleDbType type;
+        private Object _value;
 
-        public ProcedureParameter(string name, System.Data.OleDb.OleDbType type)
+        public ProcedureParameter(string name, System.Data.OleDb.OleDbType type, Object value)
         {
             this.name = name;
             this.type = type;
+            this._value = value;
         }
 
         public string Name
@@ -27,6 +29,12 @@ namespace Projet_Middleware.Couche_métier.Mappage
         {
             get { return type; }
             set { type = value; }
+        }
+
+        public Object Value
+        {
+            get { return _value; }
+            set { _value = value; }
         }
     }
 }
