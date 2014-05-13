@@ -15,7 +15,6 @@ namespace Projet_Middleware
         {
             Console.Title = "Projet Middleware";
             Console.WriteLine("~~~~~~ MIDDLEWARE ~~~~~~");
-            Projet_Middleware.Service_étendu.CAD.GetInstance();
             MessageManager.StartListening();
         }
 
@@ -23,6 +22,21 @@ namespace Projet_Middleware
         {
             if (Properties.Settings.Default.DebugMode)
                 Console.WriteLine("DEBUG: "+msg+"\n");
+        }
+
+        public static void DebugPrintDataSet(System.Data.DataSet ds)
+        {
+            foreach (System.Data.DataTable table in ds.Tables)
+            {
+                Debug(table.TableName);
+                foreach (System.Data.DataRow row in table.Rows)
+                {
+                    foreach (System.Data.DataColumn col in table.Columns)
+                    {
+                        Debug(row[col.ColumnName].ToString());
+                    }
+                }
+            }
         }
     }
 }

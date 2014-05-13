@@ -25,6 +25,18 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
             this.enableSSL = enableSSL;
         }
 
+        public override string ToString()
+        {
+            string str = "Adress: " + this.address
+                + "\n --  Username: " + this.username
+                + "\n --  Password: " + this.password
+                + "\n --  Host: " + this.host
+                + "\n --  Port: " + this.port
+                + "\n --  EnableSSL: " + this.enableSSL;
+
+            return str;
+        }
+
         public string Address
         {
             get { return address; }

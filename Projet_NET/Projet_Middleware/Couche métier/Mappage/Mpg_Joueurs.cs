@@ -9,12 +9,13 @@ namespace Projet_Middleware.Couche_métier.Mappage
     class Mpg_Joueurs
     {
         public static string CH_ID = "Id_Joueur";
-        public static string CH_PSEUDO = "Id_Joueur";
-        public static string CH_SCORE = "Id_Joueur";
+        public static string CH_PSEUDO = "Pseudo";
+        public static string CH_SCORE = "Score";
 
-        static public string Rq_GetAllPlayers()
+        static public TSQLProcedure Rq_GetAllPlayers()
         {
-            return "";
+            TSQLProcedure proc = new TSQLProcedure("DisplayClassement", null);
+            return proc;
         }
 
         static public string Rq_GetPlayer()

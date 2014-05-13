@@ -24,7 +24,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
             this.type = type;
         }
 
-        public Object LoadConfig()
+        public MessageSerializable.Message LoadConfig()
         {
             if (type == CONFIG_TYPE.SQL_Server_Config)
             {
@@ -34,7 +34,6 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
                 doc.Load(SQLSERVER_CONFIG_PATH);
 
                 string provider = doc.DocumentElement.SelectSingleNode("/Config/Provider").InnerText;
-                string netLib = doc.DocumentElement.SelectSingleNode("/Config/NetworkLibrary").InnerText;
                 string dataSource = doc.DocumentElement.SelectSingleNode("/Config/DataSource").InnerText;
                 string initCatalog = doc.DocumentElement.SelectSingleNode("/Config/InitialCatalog").InnerText;
                 string user = doc.DocumentElement.SelectSingleNode("/Config/User").InnerText;
@@ -42,9 +41,10 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
                 
                 //ReversibleEncryption.EncryptFile(SQLSERVER_CONFIG_PATH);
 
-                cnx = "Provider=" + provider + "; Network Library=" + netLib + "; Data Source=" + dataSource + "; Initial Catalog=" + initCatalog + "; User=" + user + "; Password=" + password + ";";
-                
-                return cnx;
+                cnx = "Provider=" + provider + ";Data Source=" + dataSource + ";User ID=" + user + ";Password=" + password + ";Initial Catalog=" + initCatalog + "";
+                MessageSerializable.Message msg = new MessageSerializable.Message();
+                msg.Data[0] = cnx;
+                return msg;
             }
             else if (type == CONFIG_TYPE.SMTP_Config)
             {
@@ -63,7 +63,9 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
 
                 SMTPConfig smtp = new SMTPConfig(address, username, password, host, Convert.ToInt32(port), bool.Parse(enableSSL));
                 
-                return smtp;
+                MessageSerializable.Message msg = new MessageSerializable.Message();
+                msg.Data[0] = smtp;
+                return msg;
             }
             else
                 return null;

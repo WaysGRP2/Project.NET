@@ -117,6 +117,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
             catch (Exception ex)
             {
                 // failed to encrypt file
+                Program.Debug(ex.Message);
             }
         }
 
@@ -155,6 +156,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
             catch (Exception ex)
             {
                 // failed to decrypt file
+                Program.Debug(ex.Message);
             }
         }
     }

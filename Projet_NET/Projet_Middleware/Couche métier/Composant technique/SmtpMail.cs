@@ -21,9 +21,9 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
         {
             message = new MailMessage();
             smtp = new SmtpClient();
-            XMLLoader xml = new XMLLoader(XMLLoader.CONFIG_TYPE.SMTP_Config);
-            config = (SMTPConfig)xml.LoadConfig();
+            config = (SMTPConfig)Projet_Middleware.Service_étendu.ComSMTP.GetInstance().GetSmtpConfig().Data[0];
             basicCredential = new NetworkCredential(config.Username, config.Password);
+            Program.Debug(config.ToString());
             smtp.UseDefaultCredentials = false;
             smtp.Credentials = basicCredential;
         }

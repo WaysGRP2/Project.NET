@@ -10,10 +10,10 @@ namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
     {
         public int id;
         private string question;
-        private List<ReponseJeu> reponses;
+        private List<ReponseOrientation> reponses;
         private int order;
 
-        public QuestionOrientation(int id, string question, List<ReponseJeu> reponses, int order)
+        public QuestionOrientation(int id, string question, List<ReponseOrientation> reponses, int order)
         {
             this.id = id;
             this.question = question;
@@ -21,7 +21,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
             this.order = order;
         }
 
-        public QuestionOrientation(string question, List<ReponseJeu> reponses, int order)
+        public QuestionOrientation(string question, List<ReponseOrientation> reponses, int order)
         {
             this.id = -1;
             this.question = question;
@@ -52,7 +52,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
             set { question = value; }
         }
 
-        public List<ReponseJeu> Reponses
+        public List<ReponseOrientation> Reponses
         {
             get { return reponses; }
             set { reponses = value; }

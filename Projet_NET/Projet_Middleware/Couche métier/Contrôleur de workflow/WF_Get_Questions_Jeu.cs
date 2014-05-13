@@ -13,7 +13,7 @@ namespace Projet_Middleware.Couche_métier.Contrôleur_de_workflow
     class WF_Get_Questions_Jeu : IWorkflow
     {
         public Message Exec(Message msg)
-        {
+        {/*
             List<QuestionJeu> questionnaireJeu = new List<QuestionJeu>();
             System.Data.DataSet results = CAD.GetInstance().m_GetRows(Mpg_Questions_Jeu.Rq_GetAllQuestions(), "QuestionJeu");
 
@@ -41,7 +41,8 @@ namespace Projet_Middleware.Couche_métier.Contrôleur_de_workflow
 
             msg.Data[0] = questionnaireJeu;
             msg.Statut = true;
-            return msg;
+            return msg;*/
+            return null;
         }
     }
 }

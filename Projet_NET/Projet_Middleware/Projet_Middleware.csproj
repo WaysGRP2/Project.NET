@@ -88,6 +88,7 @@
     <Compile Include="Couche métier\Mappage\Mpg_Reponses_Jeu.cs" />
     <Compile Include="Couche métier\Mappage\Mpg_Reponses_Orientation.cs" />
     <Compile Include="Couche métier\Mappage\Mpg_Statistiques.cs" />
+    <Compile Include="Couche métier\Mappage\TSQLProcedure.cs" />
     <Compile Include="Groupe de processus\TaskProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,7 +99,7 @@
     </Compile>
     <Compile Include="Service étendu\CAD.cs" />
     <Compile Include="Service étendu\ComSMTP.cs" />
-    <Compile Include="Service étendu\ProcedureParameter.cs" />
+    <Compile Include="Couche métier\Mappage\ProcedureParameter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
