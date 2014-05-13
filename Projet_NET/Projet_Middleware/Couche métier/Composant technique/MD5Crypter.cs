@@ -14,7 +14,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
         {
             if (msg.Data[0].GetType() == typeof(string))
             {
-                Console.WriteLine("Erreur, l'objet a crypter n'est pas une chaîne de caractère.");
+                Console.WriteLine("Objet de type string requis, calcule du Hash MD5 impossible.");
                 msg.Statut = false;
                 return msg;
             }
