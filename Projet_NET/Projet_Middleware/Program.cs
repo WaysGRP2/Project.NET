@@ -15,7 +15,14 @@ namespace Projet_Middleware
         {
             Console.Title = "Projet Middleware";
             Console.WriteLine("~~~~~~ MIDDLEWARE ~~~~~~");
+            Projet_Middleware.Service_étendu.CAD.GetInstance();
             MessageManager.StartListening();
+        }
+
+        public static void Debug(string msg)
+        {
+            if (Properties.Settings.Default.DebugMode)
+                Console.WriteLine("DEBUG: "+msg+"\n");
         }
     }
 }

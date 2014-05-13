@@ -12,23 +12,16 @@ namespace Projet_Middleware.Couche_métier.Contrôleur_de_workflow
 {
     class WF_Get_Classement : IWorkflow
     {
-        private CAD cad;
-
-        public WF_Get_Classement()
-        {
-            this.cad = new CAD();
-        }
-
         public Message Exec(Message msg)
         {
             List<Joueur> classement = new List<Joueur>();
-            System.Data.DataSet results = this.cad.m_GetRows(Mpg_Joueurs.Rq_GetAllPlayers(), "Classement");
+            System.Data.DataSet results = CAD.GetInstance().m_GetRows(Mpg_Joueurs.Rq_GetAllPlayers(), "Classement");
 
             foreach (System.Data.DataRow row in results.Tables[0].Rows)
             {
-                int id = Convert.ToInt32(row["Id_Joueur"].ToString());
-                string nom = row["Pseudo"].ToString();
-                int score = Convert.ToInt32(row["Score"].ToString());
+                int id = Convert.ToInt32(row[Mpg_Joueurs.CH_ID].ToString());
+                string nom = row[Mpg_Joueurs.CH_PSEUDO].ToString();
+                int score = Convert.ToInt32(row[Mpg_Joueurs.CH_SCORE].ToString());
 
                 classement.Add(new Joueur(id, nom, score));
             }

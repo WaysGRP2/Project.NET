@@ -8,6 +8,10 @@ namespace Projet_Middleware.Couche_métier.Mappage
 {
     class Mpg_Metiers
     {
+        public static string CH_ID = "Id_Metier";
+        public static string CH_DESCRIPTION = "Description_Metier";
+        public static string CH_INTITULE = "Intitule_Metier";
+
         static public string Rq_GetAllMetiers()
         {
             return "";

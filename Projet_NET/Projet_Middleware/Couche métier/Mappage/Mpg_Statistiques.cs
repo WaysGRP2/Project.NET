@@ -8,6 +8,13 @@ namespace Projet_Middleware.Couche_métier.Mappage
 {
     class Mpg_Statistiques
     {
+        public static string CH_AGE = "Age";
+        public static string CH_SEXE = "Sexe";
+        public static string CH_CODE_POSTAL = "Code_Postal";
+        public static string CH_DIPLOME = "Diplome";
+        public static string CH_DIPLOME_TYPE = "Type_Diplome";
+        public static string CH_CONNAISSANCES = "Connaissance";
+
         static public string Rq_GetAllStats()
         {
             return "";

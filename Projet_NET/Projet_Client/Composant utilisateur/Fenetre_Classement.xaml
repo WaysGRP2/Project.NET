@@ -1,0 +1,16 @@
+﻿<Window x:Class="Projet_Client.Composant_utilisateur.Fenetre_Classement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Fenetre_Classement" Height="430" Width="550">
+    <Grid>
+        <ListView x:Name="ClassementListView" HorizontalAlignment="Left" Height="358" Margin="130,32,0,0" VerticalAlignment="Top" Width="279">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="ClassementLabel" Content="Classement" HorizontalAlignment="Left" Margin="201,0,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI Semibold"/>
+
+    </Grid>
+</Window>

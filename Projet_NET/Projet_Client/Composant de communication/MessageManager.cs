@@ -11,7 +11,7 @@ namespace Projet_Client.Composant_de_communication
 {
     class MessageManager
     {
-        public static Message StartClient(Message msg)
+        public static Message SendMessageToServer(Message msg)
         {
             // Data buffer for incoming data.
             byte[] bytes = new byte[1024];

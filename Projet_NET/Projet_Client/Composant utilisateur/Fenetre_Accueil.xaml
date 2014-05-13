@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Fenetre_Accueil" Height="430" Width="550">
     <Grid>
-        <Button x:Name="LaunchOrientationButton" Content="Lancer le test d'orientation" HorizontalAlignment="Left" Height="30" Margin="193,141,0,0" VerticalAlignment="Top" Width="158"/>
-        <Button x:Name="LaunchGameButton" Content="Lancer le Jeu" HorizontalAlignment="Left" Height="30" Margin="193,193,0,0" VerticalAlignment="Top" Width="158"/>
+        <Button x:Name="LaunchOrientationButton" Content="Lancer le test d'orientation" HorizontalAlignment="Left" Height="30" Margin="193,141,0,0" VerticalAlignment="Top" Width="158" Click="LaunchOrientationButton_Click"/>
+        <Button x:Name="LaunchGameButton" Content="Lancer le Jeu" HorizontalAlignment="Left" Height="30" Margin="193,193,0,0" VerticalAlignment="Top" Width="158" Click="LaunchGameButton_Click"/>
         <TextBlock x:Name="DebugTextBlock" HorizontalAlignment="Left" Height="96" Margin="10,281,0,0" TextWrapping="Wrap" Text="CONSOLE" VerticalAlignment="Top" Width="211"/>
         <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="193,58,0,0" TextWrapping="Wrap" Text="Pseudo/Nom" VerticalAlignment="Top" Width="158"/>
         <TextBox x:Name="MailTextBox" HorizontalAlignment="Left" Height="23" Margin="193,98,0,0" TextWrapping="Wrap" Text="Adresse mail" VerticalAlignment="Top" Width="158"/>
-        <Button x:Name="AdminButton" Content="Admin" HorizontalAlignment="Left" Margin="457,368,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="AdminButton" Content="Admin" HorizontalAlignment="Left" Margin="457,368,0,0" VerticalAlignment="Top" Width="75" Click="AdminButton_Click"/>
         <Button x:Name="SendMailButton" Content="SendMail" HorizontalAlignment="Left" Margin="10,254,0,0" VerticalAlignment="Top" Width="75" Click="SendMailButton_Click"/>
         <Label x:Name="InfoLabel" Content="Aucune donnée personnelle n'est sauvegardée" HorizontalAlignment="Left" Margin="145,228,0,0" VerticalAlignment="Top"/>
 

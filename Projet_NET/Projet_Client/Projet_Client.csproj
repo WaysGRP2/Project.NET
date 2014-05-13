@@ -68,6 +68,15 @@
     <Compile Include="Composant utilisateur\Fenetre_Accueil.xaml.cs">
       <DependentUpon>Fenetre_Accueil.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Composant utilisateur\Fenetre_Admin.xaml.cs">
+      <DependentUpon>Fenetre_Admin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Composant utilisateur\Fenetre_Classement.xaml.cs">
+      <DependentUpon>Fenetre_Classement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Composant utilisateur\Fenetre_Questionnaire.xaml.cs">
+      <DependentUpon>Fenetre_Questionnaire.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -97,6 +106,18 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="Composant utilisateur\Fenetre_Accueil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Composant utilisateur\Fenetre_Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Composant utilisateur\Fenetre_Classement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Composant utilisateur\Fenetre_Questionnaire.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

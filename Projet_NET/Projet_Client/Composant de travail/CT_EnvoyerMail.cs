@@ -28,7 +28,7 @@ namespace Projet_Client.Composant_de_travail
             msg.Data[0] = mail;
             msg.Data[1] = "Corps du message";
             msg.Token = "20942948CU4209U";
-            Message reponse = MessageManager.StartClient(msg);
+            Message reponse = MessageManager.SendMessageToServer(msg);
             return reponse;
         }
     }

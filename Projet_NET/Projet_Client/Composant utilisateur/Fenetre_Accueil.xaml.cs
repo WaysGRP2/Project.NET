@@ -34,5 +34,23 @@ namespace Projet_Client.Composant_utilisateur
 
             this.DebugTextBlock.Text = "Tâche :" + reponse.Invoke + "    Réussi :" + reponse.Statut.ToString() + "\n";
         }
+
+        private void AdminButton_Click(object sender, RoutedEventArgs e)
+        {
+            Fenetre_Admin fa =  new Fenetre_Admin();
+            fa.Show();
+        }
+
+        private void LaunchGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            Fentre_Questionnaire fq = new Fentre_Questionnaire();
+            fq.Show();
+        }
+
+        private void LaunchOrientationButton_Click(object sender, RoutedEventArgs e)
+        {
+            Fentre_Questionnaire fq = new Fentre_Questionnaire();
+            fq.Show();
+        }
     }
 }

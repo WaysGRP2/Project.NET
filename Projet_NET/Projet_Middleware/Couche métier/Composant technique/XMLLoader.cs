@@ -33,15 +33,16 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
                 XmlDocument doc = new XmlDocument();
                 doc.Load(SQLSERVER_CONFIG_PATH);
 
-                string driver = doc.DocumentElement.SelectSingleNode("/Config/Driver").InnerText;
-                string server = doc.DocumentElement.SelectSingleNode("/Config/Server").InnerText;
-                string dataBase = doc.DocumentElement.SelectSingleNode("/Config/DataBase").InnerText;
-                string uid = doc.DocumentElement.SelectSingleNode("/Config/Uid").InnerText;
-                string pwd = doc.DocumentElement.SelectSingleNode("/Config/Pwd").InnerText;
+                string provider = doc.DocumentElement.SelectSingleNode("/Config/Provider").InnerText;
+                string netLib = doc.DocumentElement.SelectSingleNode("/Config/NetworkLibrary").InnerText;
+                string dataSource = doc.DocumentElement.SelectSingleNode("/Config/DataSource").InnerText;
+                string initCatalog = doc.DocumentElement.SelectSingleNode("/Config/InitialCatalog").InnerText;
+                string user = doc.DocumentElement.SelectSingleNode("/Config/User").InnerText;
+                string password = doc.DocumentElement.SelectSingleNode("/Config/Password").InnerText;
                 
                 //ReversibleEncryption.EncryptFile(SQLSERVER_CONFIG_PATH);
-                
-                cnx = "Driver={" + driver + "}; Server=" + server + "; DataBase=" + dataBase + "; Uid=" + uid + "; Pwd=" + pwd + ";";
+
+                cnx = "Provider=" + provider + "; Network Library=" + netLib + "; Data Source=" + dataSource + "; Initial Catalog=" + initCatalog + "; User=" + user + "; Password=" + password + ";";
                 
                 return cnx;
             }

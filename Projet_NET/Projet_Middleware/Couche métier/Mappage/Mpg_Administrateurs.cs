@@ -8,6 +8,10 @@ namespace Projet_Middleware.Couche_métier.Mappage
 {
     class Mpg_Administrateurs
     {
+        public static string CH_ID = "Id_Admin";
+        public static string CH_LOGIN = "Login";
+        public static string CH_MDP = "Mdp";
+
         static public string Rq_GetAllAdmins()
         {
             return "";
