@@ -18,26 +18,37 @@ namespace Projet_Middleware.Couche_métier.Mappage
             return proc;
         }
 
-        static public string Rq_GetPlayer()
+        static public TSQLProcedure Rq_GetPlayer(int id)
         {
-            return "";
+            ProcedureParameter[] parameters = new ProcedureParameter[1];
+            parameters[0] = new ProcedureParameter("id", System.Data.OleDb.OleDbType.Integer, id);
+            TSQLProcedure proc = new TSQLProcedure("GetJoueur", parameters);
+            return proc;
         }
 
-        static public string Rq_DeletePlayer()
+        static public TSQLProcedure Rq_DeletePlayer(int id)
         {
-            return "";
+            ProcedureParameter[] parameters = new ProcedureParameter[1];
+            parameters[0] = new ProcedureParameter("id", System.Data.OleDb.OleDbType.Integer, id);
+            TSQLProcedure proc = new TSQLProcedure("Supp_Joueur", parameters);
+            return proc;
         }
 
-        static public string Rq_UpdatePlayer()
+        static public TSQLProcedure Rq_UpdatePlayer(int id, string pseudo, int score)
         {
-            return "";
+            ProcedureParameter[] parameters = new ProcedureParameter[3];
+            parameters[0] = new ProcedureParameter("id", System.Data.OleDb.OleDbType.Integer, id);
+            parameters[1] = new ProcedureParameter("pseudo", System.Data.OleDb.OleDbType.VarChar, pseudo);
+            parameters[2] = new ProcedureParameter("score", System.Data.OleDb.OleDbType.Integer, score);
+            TSQLProcedure proc = new TSQLProcedure("ModifierJoueur", parameters);
+            return proc;
         }
 
         static public TSQLProcedure Rq_CreatePlayer(string pseudo, int score)
         {
             ProcedureParameter[] parameters = new ProcedureParameter[2]; 
             parameters[0] = new ProcedureParameter("pseudo", System.Data.OleDb.OleDbType.VarChar, pseudo);
-            parameters[1] = new ProcedureParameter("score", System.Data.OleDb.OleDbType.VarChar, score);
+            parameters[1] = new ProcedureParameter("score", System.Data.OleDb.OleDbType.Integer, score);
             TSQLProcedure proc = new TSQLProcedure("AddJoueur", parameters);
             return proc;
         }
