@@ -3,6 +3,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Collections.Generic;
+using System.Xml.Serialization;
+using System.Xml;
+using System.Text;
 
 namespace MessageSerializable
 {
@@ -70,6 +74,7 @@ namespace MessageSerializable
                 return null;
             BinaryFormatter bf = new BinaryFormatter();
             MemoryStream ms = new MemoryStream();
+            ms.Position = 0;
             bf.Serialize(ms, this);
             return ms.ToArray();
         }
@@ -90,6 +95,7 @@ namespace MessageSerializable
                 {
                     BinaryFormatter formatter = new BinaryFormatter();
                     MemoryStream ms = new MemoryStream(obj);
+                    ms.Position = 0;
                     return (Message)formatter.Deserialize(ms);
                 }
             }

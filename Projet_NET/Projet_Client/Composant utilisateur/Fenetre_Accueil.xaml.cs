@@ -24,6 +24,11 @@ namespace Projet_Client.Composant_utilisateur
         public Fenetre_Accueil()
         {
             InitializeComponent();
+            if (Properties.Settings.Default.DebugMode)
+            {
+                Projet_Client.Composant_de_communication.MessageManager.ShowConsoleWindow();
+                Projet_Client.Composant_de_communication.MessageManager.Debug("##### CONSOLE DEBUG PROJET_CLIENT #####");
+            }
         }
 
         private void SendMailButton_Click(object sender, RoutedEventArgs e)

@@ -66,7 +66,7 @@ namespace Projet_Middleware.Composant_Serveur
                     // Send the reponse to the client.
                     if (reponse != null)
                     {
-                        Program.Debug("Envoi d'un message... Sérilalization.");
+                        Program.Debug("Envoi d'un message... Sérilalization. ("+reponse.Data[0].GetType().Name+")");
                         byte[] toSend = reponse.ToByteArray();
                         Program.Debug("Envoi d'un message... Sérilalization terminée.");
                         handler.Send(toSend); // reponse

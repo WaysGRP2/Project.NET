@@ -46,10 +46,10 @@ namespace Projet_Middleware.Couche_métier.Contrôleur_de_workflow
                     reponsesQuestion.Add(reponseQues);
                 }
 
-                questionsJeu.Add(new QuestionJeu(id, intitule, reponsesQuestion,ordre));
+                questionsJeu.Add(new QuestionJeu(id, intitule, reponsesQuestion.Cast<ReponseJeu>().ToArray(),ordre));
             }
 
-            msg.Data[0] = questionsJeu;
+            msg.Data[0] = questionsJeu.Cast<QuestionJeu>().ToArray();
             return msg;
         }
     }

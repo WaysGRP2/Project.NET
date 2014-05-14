@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Net;
 using MessageSerializable;
+using System.Runtime.InteropServices;
 
 namespace Projet_Client.Composant_de_communication
 {
@@ -37,15 +38,20 @@ namespace Projet_Client.Composant_de_communication
                         sender.RemoteEndPoint.ToString());
 
                     // Encode the message into a byte array.
+                    Debug("Envoi d'un message... Sérilalization.");
                     byte[] msgBytes = msg.ToByteArray();
+                    Debug("Envoi d'un message... Sérilalization terminée.");
 
                     // Send the data through the socket.
                     int bytesSent = sender.Send(msgBytes);
+                    Debug("Envoi d'un message... Envoi terminé.");
 
                     // Receive the response from the remote device.
+                    Debug("Reception d'un message... Réception.");
                     int bytesRec = sender.Receive(bytes);
+                    Debug("Reception d'un message... Désérilalization.");
                     Message reponse = Message.GetMessageFromByteArray(bytes);
-
+                    Debug("Reception d'un message... Désérilalization terminée.");
                     // Release the socket.
                     sender.Shutdown(SocketShutdown.Both);
                     sender.Close();
@@ -82,5 +88,44 @@ namespace Projet_Client.Composant_de_communication
                 return msg;
             }
         }
+
+        public static void Debug(string msg)
+        {
+            if (Properties.Settings.Default.DebugMode)
+                Console.WriteLine("DEBUG: " + msg + "\n");
+        }
+
+        public static void ShowConsoleWindow()
+        {
+            var handle = GetConsoleWindow();
+
+            if (handle == IntPtr.Zero)
+            {
+                AllocConsole();
+            }
+            else
+            {
+                ShowWindow(handle, SW_SHOW);
+            }
+        }
+
+        public static void HideConsoleWindow()
+        {
+            var handle = GetConsoleWindow();
+
+            ShowWindow(handle, SW_HIDE);
+        }
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern bool AllocConsole();
+
+        [DllImport("kernel32.dll")]
+        static extern IntPtr GetConsoleWindow();
+
+        [DllImport("user32.dll")]
+        static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        const int SW_HIDE = 0;
+        const int SW_SHOW = 5;
     }
 }

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace ComposantTechnique.Objets_en_base
 {
-    public class ReponseOrientation : ObjetEnBase
+    [Serializable()]
+    public class ReponseOrientation : ObjetEnBase, ISerializable
     {
         public int id;
         private int id_question;
@@ -27,6 +27,22 @@ namespace ComposantTechnique.Objets_en_base
             this.id_question = id_question;
             this.reponseText = reponseText;
             this.metier = metier;
+        }
+
+        public ReponseOrientation(SerializationInfo info, StreamingContext ctxt)
+        {
+            this.id = (int)info.GetValue("id", typeof(int));
+            this.id_question = (int)info.GetValue("id_question", typeof(int));
+            this.reponseText = (string)info.GetValue("reponseText", typeof(string));
+            this.metier = (Metier)info.GetValue("metier", typeof(Metier));
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        {
+            info.AddValue("id", this.id);
+            info.AddValue("id_question", this.id_question);
+            info.AddValue("reponseText", this.reponseText);
+            info.AddValue("metier", this.metier);
         }
 
         public void SaveInBase()

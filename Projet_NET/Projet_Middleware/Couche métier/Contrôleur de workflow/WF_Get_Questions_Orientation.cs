@@ -59,10 +59,10 @@ namespace Projet_Middleware.Couche_métier.Contrôleur_de_workflow
                         reponsesQuestion.Add(reponseQues);
                 }
 
-                questionsOrientation.Add(new QuestionOrientation(id, intitule, reponsesQuestion, ordre));
+                questionsOrientation.Add(new QuestionOrientation(id, intitule, reponsesQuestion.Cast<ReponseOrientation>().ToArray(), ordre));
             }
 
-            msg.Data[0] = questionsOrientation;
+            msg.Data[0] = questionsOrientation.Cast<QuestionOrientation>().ToArray();
             return msg;
         }
     }

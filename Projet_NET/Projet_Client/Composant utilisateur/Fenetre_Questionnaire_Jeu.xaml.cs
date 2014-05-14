@@ -21,7 +21,7 @@ namespace Projet_Client.Composant_utilisateur
             Orientation
         }
 
-        private List<QuestionJeu> questionnaire;
+        private QuestionJeu[] questionnaire;
 
         public Fenetre_Questionnaire_Jeu()
         {
@@ -30,7 +30,7 @@ namespace Projet_Client.Composant_utilisateur
             CT_Get_Questionnaire CT = new CT_Get_Questionnaire();
             MessageSerializable.Message msg = new MessageSerializable.Message();
             msg.Data[0] = QuestionnaireType.Jeu;
-            this.questionnaire = (List<QuestionJeu>)CT.Exec(msg).Data[0];
+            this.questionnaire = (QuestionJeu[])CT.Exec(msg).Data[0];
             if (this.questionnaire == null)
                 return;
             foreach (QuestionJeu q in this.questionnaire)

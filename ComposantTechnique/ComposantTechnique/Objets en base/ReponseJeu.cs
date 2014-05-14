@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace ComposantTechnique.Objets_en_base
 {
-    public class ReponseJeu : ObjetEnBase
+    [Serializable()]
+    public class ReponseJeu : ObjetEnBase, ISerializable
     {
         public int id;
         private int id_question;
@@ -30,6 +30,26 @@ namespace ComposantTechnique.Objets_en_base
             this.reponseText = reponseText;
             this.points = points;
             this.isCorrect = isCorrect;
+        }
+
+        public ReponseJeu(SerializationInfo info, StreamingContext ctxt)
+        {
+            Console.WriteLine("Désérialisation de " + this.GetType().ToString());
+            this.id = (int)info.GetValue("id", typeof(int));
+            this.id_question = (int)info.GetValue("id_question", typeof(int));
+            this.reponseText = (string)info.GetValue("reponseText", typeof(string));
+            this.points = (int)info.GetValue("points", typeof(int));
+            this.isCorrect = (bool)info.GetValue("isCorrect", typeof(bool));
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        {
+            Console.WriteLine("Sérialisation de " + this.GetType().ToString());
+            info.AddValue("id", this.id);
+            info.AddValue("id_question", this.id_question);
+            info.AddValue("reponseText", this.reponseText);
+            info.AddValue("points", this.points);
+            info.AddValue("isCorrect", this.isCorrect);
         }
 
         public void SaveInBase()

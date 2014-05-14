@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace ComposantTechnique.Objets_en_base
 {
-    public class QuestionOrientation : ObjetEnBase
+    [Serializable()]
+    public class QuestionOrientation : ObjetEnBase,ISerializable
     {
         public int id;
         private string question;
-        private List<ReponseOrientation> reponses;
+        private ReponseOrientation[] reponses = new ReponseOrientation[4];
         private int order;
 
-        public QuestionOrientation(int id, string question, List<ReponseOrientation> reponses, int order)
+        public QuestionOrientation(int id, string question, ReponseOrientation[] reponses, int order)
         {
             this.id = id;
             this.question = question;
@@ -21,12 +21,28 @@ namespace ComposantTechnique.Objets_en_base
             this.order = order;
         }
 
-        public QuestionOrientation(string question, List<ReponseOrientation> reponses, int order)
+        public QuestionOrientation(string question, ReponseOrientation[] reponses, int order)
         {
             this.id = -1;
             this.question = question;
             this.reponses = reponses;
             this.order = order;
+        }
+
+        public QuestionOrientation(SerializationInfo info, StreamingContext ctxt)
+        {
+            this.id = (int)info.GetValue("id", typeof(int));
+            this.question = (string)info.GetValue("question", typeof(string));
+            this.reponses = (ReponseOrientation[])info.GetValue("reponses", typeof(ReponseOrientation[]));
+            this.order = (int)info.GetValue("order", typeof(int));
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        {
+            info.AddValue("id", this.id);
+            info.AddValue("question", this.question);
+            info.AddValue("reponses", this.reponses);
+            info.AddValue("order", this.order);
         }
 
         public void SaveInBase()
@@ -52,7 +68,7 @@ namespace ComposantTechnique.Objets_en_base
             set { question = value; }
         }
 
-        public List<ReponseOrientation> Reponses
+        public ReponseOrientation[] Reponses
         {
             get { return reponses; }
             set { reponses = value; }
