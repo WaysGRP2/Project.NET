@@ -16,13 +16,7 @@ namespace Projet_Middleware.Couche_métier.Mappage
         {
             TSQLProcedure proc = new TSQLProcedure("DisplayQuestionJeu", null);
             return proc;
-        } 
-        /*
-        static public TSQLProcedure Rq_GetQuestion()
-        {
-            TSQLProcedure proc = new TSQLProcedure ("DisplayQuestionJeu", null)
-            return proc;
-        } */
+        }
 
         static public TSQLProcedure Rq_DeleteQuestion(int id)
         {

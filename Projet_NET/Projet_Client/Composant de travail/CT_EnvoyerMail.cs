@@ -22,7 +22,7 @@ namespace Projet_Client.Composant_de_travail
             Message msg = new Message();
             msg.AppName = Properties.Settings.Default.AppName;
             msg.Invoke = ServeurTask.ENVOYER_MAIL;
-            msg.PSecurity = "A faire";
+            msg.PSecurity = "Projet_Client";
             msg.Statut = false;
             msg.Info = "J'essaie d'envoyer un mail";
             msg.Data[0] = oMsg.Data[0];

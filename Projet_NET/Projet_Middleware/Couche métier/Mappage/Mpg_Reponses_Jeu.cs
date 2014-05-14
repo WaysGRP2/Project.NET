@@ -35,7 +35,7 @@ namespace Projet_Middleware.Couche_métier.Mappage
         static public TSQLProcedure Rq_CreateReponse(int id, string intitule, int point, bool iscorrect)
         {
             ProcedureParameter[] parameters = new ProcedureParameter[4];
-            parameters[0] = new ProcedureParameter("@id_reponse_jeu", System.Data.OleDb.OleDbType.Integer, id);
+            parameters[0] = new ProcedureParameter("@id_question_jeu", System.Data.OleDb.OleDbType.Integer, id);
             parameters[1] = new ProcedureParameter("@intitule_reponse", System.Data.OleDb.OleDbType.VarChar, intitule);
             parameters[2] = new ProcedureParameter("@point", System.Data.OleDb.OleDbType.Integer, point);
             parameters[3] = new ProcedureParameter("@etat", System.Data.OleDb.OleDbType.Boolean, iscorrect);

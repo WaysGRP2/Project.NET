@@ -14,25 +14,23 @@ namespace Projet_Client.Composant_de_travail
     {
         public Message Exec(Message oMsg)
         {
-            Fenetre_Questionnaire.QuestionnaireType type = (Fenetre_Questionnaire.QuestionnaireType)oMsg.Data[0];
+            Fenetre_Questionnaire_Jeu.QuestionnaireType type = (Fenetre_Questionnaire_Jeu.QuestionnaireType)oMsg.Data[0];
             Message msg = new Message();
             
             switch (type)
             {
-                case Fenetre_Questionnaire.QuestionnaireType.Jeu:
+                case Fenetre_Questionnaire_Jeu.QuestionnaireType.Jeu:
                     msg.Invoke = ServeurTask.AFFICHER_QUESTION_JEU;
                     break;
 
-                case Fenetre_Questionnaire.QuestionnaireType.Orientation:
+                case Fenetre_Questionnaire_Jeu.QuestionnaireType.Orientation:
                     msg.Invoke = ServeurTask.AFFICHER_QUESTION_ORIENTATION;
                     break;
             }
-
             msg.AppName = Properties.Settings.Default.AppName;
             msg.PSecurity = "Projet_Client";
             msg.Statut = false;
             msg.Info = "Je veux répupérer le questionnaire";
-            msg.Data[0] = oMsg.Data[0];
             msg.Token = "20942948CU4209U";
             Message reponse = MessageManager.SendMessageToServer(msg);
             return reponse;

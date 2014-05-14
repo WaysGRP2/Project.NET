@@ -38,16 +38,16 @@ namespace Projet_Middleware.Couche_métier.Contrôleur_de_workflow
                 {
                     Metier metier = new Metier("Aucun metier","Aucune description");
 
-                    int idRep = Convert.ToInt32(row[Mpg_Reponses_Orientation.CH_ID].ToString());
-                    int idQues = Convert.ToInt32(row[Mpg_Reponses_Orientation.CH_ID_QUESTION].ToString());
-                    string intituleRep = row[Mpg_Reponses_Orientation.CH_INTITULE].ToString();
-                    int idMetier = Convert.ToInt32(row[Mpg_Reponses_Orientation.CH_ID_METIER].ToString());
+                    int idRep = Convert.ToInt32(rowRep[Mpg_Reponses_Orientation.CH_ID].ToString());
+                    int idQues = Convert.ToInt32(rowRep[Mpg_Reponses_Orientation.CH_ID_QUESTION].ToString());
+                    string intituleRep = rowRep[Mpg_Reponses_Orientation.CH_INTITULE].ToString();
+                    int idMetier = Convert.ToInt32(rowRep[Mpg_Reponses_Orientation.CH_ID_METIER].ToString());
 
                     foreach (System.Data.DataRow rowMet in resultsMetier.Tables[0].Rows)
                     {
-                        int idMet  = Convert.ToInt32(row[Mpg_Metiers.CH_ID].ToString());
-                        string intituleMet = row[Mpg_Metiers.CH_INTITULE].ToString();
-                        string descMet = row[Mpg_Metiers.CH_DESCRIPTION].ToString();
+                        int idMet = Convert.ToInt32(rowMet[Mpg_Metiers.CH_ID].ToString());
+                        string intituleMet = rowMet[Mpg_Metiers.CH_INTITULE].ToString();
+                        string descMet = rowMet[Mpg_Metiers.CH_DESCRIPTION].ToString();
 
                         if (idMet == idMetier)
                             metier = new Metier(idMet, intituleMet, descMet);

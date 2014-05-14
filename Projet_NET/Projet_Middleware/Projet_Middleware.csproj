@@ -47,7 +47,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ComposantTechnique">
+    <Reference Include="ComposantTechnique, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ComposantTechnique.dll</HintPath>
     </Reference>
     <Reference Include="MessageSerializable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

@@ -29,11 +29,12 @@ namespace Projet_Middleware.Couche_métier.Mappage
             return proc;
         }
 
-        static public TSQLProcedure Rq_CreateReponse(string intitule_reponse_orient, int id_metier)
+        static public TSQLProcedure Rq_CreateReponse(int id_question_orient, string intitule_reponse_orient, int id_metier)
         {
-            ProcedureParameter[] parameters = new ProcedureParameter[2];
-            parameters[0] = new ProcedureParameter("@intitule_reponse_orient", System.Data.OleDb.OleDbType.VarChar, intitule_reponse_orient);
-            parameters[1] = new ProcedureParameter("@id_metier", System.Data.OleDb.OleDbType.Integer, id_metier);
+            ProcedureParameter[] parameters = new ProcedureParameter[3];
+            parameters[0] = new ProcedureParameter("@id_question_orient", System.Data.OleDb.OleDbType.VarChar, id_question_orient);
+            parameters[1] = new ProcedureParameter("@intitule_reponse_orient", System.Data.OleDb.OleDbType.VarChar, intitule_reponse_orient);
+            parameters[2] = new ProcedureParameter("@id_metier", System.Data.OleDb.OleDbType.Integer, id_metier);
             TSQLProcedure proc = new TSQLProcedure("AddReponseOrient", parameters);
             return proc;
         }

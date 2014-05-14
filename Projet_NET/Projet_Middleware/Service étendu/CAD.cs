@@ -40,15 +40,17 @@ namespace Projet_Middleware.Service_étendu
                 return msg;
             TSQLProcedure procedure = (TSQLProcedure)msg.Data[0];
 
+            Program.Debug("Execution de la procedure: *"+procedure.Name+"*");
+
             this.oCNX.Open();
 
-            // Creation de l'objet de commande en précisnat le nom de la procédure
+            // Creation de l'objet de commande en précisant le nom de la procédure
             OleDbCommand cmd = new OleDbCommand(procedure.Name, this.oCNX);
 
             // Dire à l'objet de commande qu'il est de type procédure stockée
             cmd.CommandType = CommandType.StoredProcedure;
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(cmd);
+            OleDbDataAdapter adp = new OleDbDataAdapter();
 
             // Ajouter les paramètres de la procédure
             if (procedure.Parameters != null)
@@ -61,7 +63,13 @@ namespace Projet_Middleware.Service_étendu
 
             // Executer la commande
             DataSet ds = new DataSet();
+            adp.SelectCommand = cmd;
             adp.Fill(ds);
+
+            if (ds.Tables[0].Rows.Count == 0)
+                Program.Debug("Le dataset retourné est null");
+            else
+                Program.Debug("Le dataset retourné contient des résultats");
 
             this.oCNX.Close();
 

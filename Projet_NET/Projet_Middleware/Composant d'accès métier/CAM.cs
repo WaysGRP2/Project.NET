@@ -34,7 +34,10 @@ namespace Projet_Middleware.Composant_d_accès_métier
                     msg = ((IWorkflow)classe).Exec(msg); // Et on l'execute
                 }
                 else
+                {
+                    Program.Debug("Le CAM ne trouve pas de correpondance de classe : "+classeApp);
                     msg.Statut = false;
+                }
             }
             return msg;
         }

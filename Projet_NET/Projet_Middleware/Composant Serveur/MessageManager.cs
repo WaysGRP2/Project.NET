@@ -50,19 +50,32 @@ namespace Projet_Middleware.Composant_Serveur
                     while (true)
                     {
                         bytes = new byte[1024];
+                        Program.Debug("Reception d'un message... Réception.");
                         handler.Receive(bytes);
+                        Program.Debug("Reception d'un message... Désérilalization.");
                         message = Message.GetMessageFromByteArray(bytes);
+                        Program.Debug("Reception d'un message... Désérilalization terminée.");
                         break;
                     }
 
                     // Show the data on the console.
                     Console.WriteLine("Task requested : " + message.Invoke);
-
+                    
                     Message reponse = EntreePlateforme.Check(message);
 
                     // Send the reponse to the client.
-
-                    handler.Send(reponse.ToByteArray()); // reponse
+                    if (reponse != null)
+                    {
+                        Program.Debug("Envoi d'un message... Sérilalization.");
+                        byte[] toSend = reponse.ToByteArray();
+                        Program.Debug("Envoi d'un message... Sérilalization terminée.");
+                        handler.Send(toSend); // reponse
+                        Program.Debug("Envoi d'un message... Envoi terminé.");
+                    }
+                    else
+                    {
+                        Program.Debug("Envoi d'un message... Reponse nulle");
+                    }
                     handler.Shutdown(SocketShutdown.Both);
                     handler.Close();
                 }

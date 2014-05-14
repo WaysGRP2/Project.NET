@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MessageSerializable;
-using Projet_Client.Composant_de_communication;
 using Projet_Client.Composant_de_travail;
 
 namespace Projet_Client.Composant_utilisateur
@@ -45,14 +44,13 @@ namespace Projet_Client.Composant_utilisateur
 
         private void LaunchGameButton_Click(object sender, RoutedEventArgs e)
         {
-            Fenetre_Questionnaire fq = new Fenetre_Questionnaire(Fenetre_Questionnaire.QuestionnaireType.Jeu);
+            Fenetre_Questionnaire_Jeu fq = new Fenetre_Questionnaire_Jeu();
             fq.Show();
         }
 
         private void LaunchOrientationButton_Click(object sender, RoutedEventArgs e)
         {
-            Fenetre_Questionnaire fq = new Fenetre_Questionnaire(Fenetre_Questionnaire.QuestionnaireType.Orientation);
-            fq.Show();
+            
         }
     }
 }

@@ -11,7 +11,6 @@ namespace Projet_Middleware.Groupe_de_processus
     class TaskProvider
     {
         CAM cam;
-        int switchCase = 1;
 
         public TaskProvider()
         {
@@ -29,138 +28,144 @@ namespace Projet_Middleware.Groupe_de_processus
             return reponse;
         }
 
-        private Message TranslateTaskToWF(Message msg)
+        private Message TranslateTaskToWF(Message oMsg)
         {
-
-            switch (switchCase)
+            Message msg = oMsg;
+            switch (msg.Invoke)
             {
-
-                case 1:if (msg.Invoke == "Envoyer_Mail")
+                case "Envoyer_Mail":
                            msg.Invoke = "WF_Envoi_Mail";
                 break;
 
-                case 2: if (msg.Invoke == "Ajouter_Metier")
+                case "Ajouter_Metier":
                            msg.Invoke = "WF_Add_Metier";
                 break;
 
-                case 3: if (msg.Invoke == "Ajouter_Joueur")
+                case "Ajouter_Joueur":
                             msg.Invoke = "WF_Add_Players";
                 break;
 
-                case 4: if (msg.Invoke == "Supprimer_Joueur")
+                case "Supprimer_Joueur":
                             msg.Invoke = "WF_Del_Players";
                 break;
 
-                case 5: if (msg.Invoke == "Supprimer_Metier")
+                case "Supprimer_Metier":
                             msg.Invoke = "WF_Del_Metier";
                 break;
 
-                case 6: if (msg.Invoke == "Supprimer_Question_Jeu")
+                case "Supprimer_Question_Jeu":
                             msg.Invoke = "WF_Del_Question_J";
                 break;
 
-                case 7: if (msg.Invoke == "Supprimer_Question_Orientation")
+                case "Supprimer_Question_Orientation":
                             msg.Invoke = "WF_Del_Question_O";
                 break;
 
-                case 8: if (msg.Invoke == "Afficher_Classement")
+                case "Afficher_Classement":
                             msg.Invoke = "WF_Get_Classement";
                 break;
 
-                case 9: if (msg.Invoke == "Afficher_Questions_Jeu")
+                case "Afficher_Questions_Jeu":
                             msg.Invoke = "WF_Get_Questions_Jeu";
                 break;
 
-                case 10: if (msg.Invoke == "Afficher_Questions_Orientation")
+                case "Afficher_Questions_Orientation":
                             msg.Invoke = "WF_Get_Questions_Orientation";
                 break;
 
-                case 11: if (msg.Invoke == "Modifier_Metier")
+                case "Modifier_Metier":
                             msg.Invoke = "WF_Upd_Metier";
                 break;
 
-                case 12: if (msg.Invoke == "Modifier_Joueur")
+                case "Modifier_Joueur":
                             msg.Invoke = "WF_Upd_Players";
                 break;
 
-                case 13: if (msg.Invoke == "Modifier_Score")
+                case "Modifier_Score":
                             msg.Invoke = "WF_Upd_PlayerScore";
                 break;
 
-                case 14: if (msg.Invoke == "Modifier_Question_Jeu")
+                case "Modifier_Question_Jeu":
                             msg.Invoke = "WF_Upd_Question_J";
                 break;
 
-                case 15: if (msg.Invoke == "Modifier_Question_Orientation")
+                case "Modifier_Question_Orientation":
                             msg.Invoke = "WF_Upd_Question_O";
+                break;
+                default:
+                            msg.Invoke = msg.Invoke;
                 break;
             }
 
             return msg;
         }
 
-        private Message TranslateWFToTask(Message reponse)
+        private Message TranslateWFToTask(Message oMsg)
         {
-            switch (switchCase)
+            Message reponse = oMsg;
+            switch (reponse.Invoke)
             {
-                case 1: if (reponse.Invoke == "WF_Envoi_Mail")
+                case "WF_Envoi_Mail":
                             reponse.Invoke = "Envoyer_Mail";
                 break;
 
-                case 2: if (reponse.Invoke == "WF_Add_Metier")
+                case "WF_Add_Metier":
                             reponse.Invoke = "Ajouter_Metier";
                 break;
 
-                case 3: if (reponse.Invoke == "WF_Add_Players")
+                case "WF_Add_Players":
                             reponse.Invoke = "Ajouter_Joueur";
                 break;
 
-                case 4: if (reponse.Invoke == "WF_Del_Joueur")
+                case "WF_Del_Joueur":
                             reponse.Invoke = "Supprimer_Metier";
                 break;
 
-                case 5: if (reponse.Invoke == "WF_Del_Metier")
+                case "WF_Del_Metier":
                             reponse.Invoke = "Supprimer_Metier";
                 break;
 
-                case 6: if (reponse.Invoke == "WF_Del_Question_J")
+                case "WF_Del_Question_J":
                             reponse.Invoke = "Supprimer_Question_Jeu";
                 break;
 
-                case 7: if (reponse.Invoke == "WF_Del_Question_O")
+                case "WF_Del_Question_O":
                             reponse.Invoke = "Supprimer_Question_Orientation";
                 break;
 
-                case 8: if (reponse.Invoke == "WF_Get_Classement")
+                case "WF_Get_Classement":
                             reponse.Invoke = "Afficher_Classement";
                 break;
 
-                case 9: if (reponse.Invoke == "WF_Get_Questions_Jeu")
+                case "WF_Get_Questions_Jeu":
                             reponse.Invoke = "Afficher_Questions_Jeu";
                 break;
 
-                case 10: if (reponse.Invoke == "WF_Get_Questions_Orientation")
+                case "WF_Get_Questions_Orientation":
                             reponse.Invoke = "Afficher_Questions_Orientation";
                 break;
 
-                case 11: if (reponse.Invoke == "WF_Upd_Metier")
+                case "WF_Upd_Metier":
                             reponse.Invoke = "Modifier_Metier";
                 break;
 
-                case 12: if (reponse.Invoke == "WF_Upd_Players")
+                case "WF_Upd_Players":
                             reponse.Invoke = "Modifier_Joueur";
                 break;
 
-                case 13: if (reponse.Invoke == "WF_Upd_PlayerScore")
+                case "WF_Upd_PlayerScore":
                             reponse.Invoke = "Modifier_Score";
                 break;
 
-                case 14: if (reponse.Invoke == "WF_Upd_Question_J")
+                case "WF_Upd_Question_J":
                             reponse.Invoke = "Modifier_Question_Jeu";
                 break;
 
-                case 15: if (reponse.Invoke == "WF_Upd_Question_O")
+                case "WF_Upd_Question_O":
                             reponse.Invoke = "Modifier_Question_Orientation";
+                break;
+                default:
+                            reponse.Invoke = reponse.Invoke;
                 break;
             }
 
