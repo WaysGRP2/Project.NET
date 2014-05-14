@@ -13,9 +13,10 @@ namespace Projet_Middleware
     {
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.Title = "Projet Middleware";
             Console.WriteLine("~~~~~~ MIDDLEWARE ~~~~~~");
-
+            Console.ResetColor();
             //DEBUGTestFunction();
             
             MessageManager.StartListening();
@@ -23,6 +24,8 @@ namespace Projet_Middleware
 
         public static void DEBUGTestFunction()
         {
+            if (!Properties.Settings.Default.DebugMode)
+                return;
             MessageSerializable.Message msg = new MessageSerializable.Message();
             msg.AppName = "Client";
             msg.Invoke = "Tâche demandée";
@@ -41,15 +44,23 @@ namespace Projet_Middleware
 
         public static void DebugPrintDataSet(System.Data.DataSet ds)
         {
-            foreach (System.Data.DataTable table in ds.Tables)
+            if (!Properties.Settings.Default.DebugMode)
+                return;
+            Console.WriteLine("Tables in '{0}' DataSet.\n", ds.DataSetName);
+            foreach (System.Data.DataTable dt in ds.Tables)
             {
-                Debug(table.TableName);
-                foreach (System.Data.DataRow row in table.Rows)
+                Console.WriteLine("{0} Table.\n", dt.TableName);
+                for (int curCol = 0; curCol < dt.Columns.Count; curCol++)
                 {
-                    foreach (System.Data.DataColumn col in table.Columns)
+                    Console.Write(dt.Columns[curCol].ColumnName.Trim() + "\t");
+                }
+                for (int curRow = 0; curRow < dt.Rows.Count; curRow++)
+                {
+                    for (int curCol = 0; curCol < dt.Columns.Count; curCol++)
                     {
-                        Debug(row[col.ColumnName].ToString());
+                        Console.Write(dt.Rows[curRow][curCol].ToString().Trim() + "\t");
                     }
+                    Console.WriteLine();
                 }
             }
         }

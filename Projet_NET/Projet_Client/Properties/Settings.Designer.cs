@@ -46,5 +46,29 @@ namespace Projet_Client.Properties {
                 this["DebugMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Default")]
+        public string PlayerName {
+            get {
+                return ((string)(this["PlayerName"]));
+            }
+            set {
+                this["PlayerName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Default")]
+        public string PlayerMail {
+            get {
+                return ((string)(this["PlayerMail"]));
+            }
+            set {
+                this["PlayerMail"] = value;
+            }
+        }
     }
 }

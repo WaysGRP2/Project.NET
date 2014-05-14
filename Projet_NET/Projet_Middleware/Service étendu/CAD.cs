@@ -16,7 +16,6 @@ namespace Projet_Middleware.Service_étendu
         private OleDbConnection oCNX;
         private OleDbCommand oCMD;
         private OleDbDataAdapter oDA;
-        private DataSet oDS;
 
         private CAD()
         {
@@ -66,10 +65,16 @@ namespace Projet_Middleware.Service_étendu
             adp.SelectCommand = cmd;
             adp.Fill(ds);
 
-            if (ds.Tables[0].Rows.Count == 0)
-                Program.Debug("Le dataset retourné est null");
-            else
-                Program.Debug("Le dataset retourné contient des résultats");
+            if (procedure.Name.Contains("Display") || procedure.Name.Contains("Select"))
+            {
+                if (ds == null || ds.Tables[0].Rows.Count == 0)
+                    Program.Debug("Le dataset retourné est null");
+                else
+                {
+                    Program.Debug("Le dataset retourné contient des résultats\n");
+                    Program.DebugPrintDataSet(ds);
+                }
+            }
 
             this.oCNX.Close();
 

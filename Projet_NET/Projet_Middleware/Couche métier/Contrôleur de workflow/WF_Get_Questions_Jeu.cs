@@ -50,7 +50,23 @@ namespace Projet_Middleware.Couche_métier.Contrôleur_de_workflow
             }
 
             msg.Data[0] = questionsJeu.Cast<QuestionJeu>().ToArray();
+            DebugPrintQuestions((QuestionJeu[])msg.Data[0]);
             return msg;
+        }
+
+        private void DebugPrintQuestions(QuestionJeu[] ques)
+        {
+            Program.Debug("####################### QUESTIONNAIRE ############################");
+            foreach (QuestionJeu q in ques)
+            {
+                Program.Debug("ID:" + q.ID + "  Ordre:" + q.Order + "  Txt:" + q.QuestionText + "  NbRep:" + q.Reponses.Length);
+                
+                foreach (ReponseJeu r in q.Reponses)
+                {
+                    Program.Debug(" ----> ID:" + r.ID + "  IdQestion:" + r.ID_Question + "  Txt:" + r.ReponseText + "  IsCorrect:" + r.IsCorrect + "  Points:" + r.Points);
+                }
+            }
+            Program.Debug("###################################################################");
         }
     }
 }

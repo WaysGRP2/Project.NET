@@ -30,7 +30,7 @@ namespace Projet_Middleware.Couche_métier.Contrôleur_de_workflow
                 classement.Add(new Joueur(id, nom, score));
             }
 
-            msg.Data[0] = classement;
+            msg.Data[0] = classement.Cast<Joueur>().ToArray();
             return msg;
         }
     }

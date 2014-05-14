@@ -27,7 +27,9 @@ namespace Projet_Client.Composant_utilisateur
             if (Properties.Settings.Default.DebugMode)
             {
                 Projet_Client.Composant_de_communication.MessageManager.ShowConsoleWindow();
+                Console.ForegroundColor = ConsoleColor.Red;
                 Projet_Client.Composant_de_communication.MessageManager.Debug("##### CONSOLE DEBUG PROJET_CLIENT #####");
+                Console.ResetColor();
             }
         }
 
@@ -49,13 +51,22 @@ namespace Projet_Client.Composant_utilisateur
 
         private void LaunchGameButton_Click(object sender, RoutedEventArgs e)
         {
-            Fenetre_Questionnaire_Jeu fq = new Fenetre_Questionnaire_Jeu();
-            fq.Show();
+            if (this.NameTextBox.Text != "" && this.MailTextBox.Text != "")
+            {
+                Properties.Settings.Default.PlayerName = this.NameTextBox.Text;
+                Properties.Settings.Default.PlayerMail = this.MailTextBox.Text;
+                Fenetre_Questionnaire_Jeu fq = new Fenetre_Questionnaire_Jeu();
+                fq.Show();
+            }
         }
 
         private void LaunchOrientationButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (this.NameTextBox.Text != "" && this.MailTextBox.Text != "")
+            {
+                Properties.Settings.Default.PlayerName = this.NameTextBox.Text;
+                Properties.Settings.Default.PlayerMail = this.MailTextBox.Text;
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Projet_Client.Composant_de_communication
         public static Message SendMessageToServer(Message msg)
         {
             // Data buffer for incoming data.
-            byte[] bytes = new byte[1024];
+            byte[] bytes = new byte[131072];
 
             // Connect to a remote device.
             try
@@ -49,6 +49,7 @@ namespace Projet_Client.Composant_de_communication
                     // Receive the response from the remote device.
                     Debug("Reception d'un message... Réception.");
                     int bytesRec = sender.Receive(bytes);
+                    Debug("Bytes reçues : " + bytesRec);
                     Debug("Reception d'un message... Désérilalization.");
                     Message reponse = Message.GetMessageFromByteArray(bytes);
                     Debug("Reception d'un message... Désérilalization terminée.");

@@ -5,8 +5,8 @@
     <Grid>
         <Label x:Name="QuestionTitleLabel" Content="Question X" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI Semibold"/>
         <Label x:Name="QuestionLabel" Content="Intutilé de la question" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Button x:Name="PrecButton" Content="Précédent" HorizontalAlignment="Left" Margin="10,368,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,0" BorderThickness="1"/>
-        <Button x:Name="SuivButton" Content="Suivant" HorizontalAlignment="Left" Margin="457,368,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="PrecButton" Content="Précédent" HorizontalAlignment="Left" Margin="10,368,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,0" BorderThickness="1" Click="PrecButton_Click"/>
+        <Button x:Name="SuivButton" Content="Suivant" HorizontalAlignment="Left" Margin="457,368,0,0" VerticalAlignment="Top" Width="75" Click="SuivButton_Click"/>
         <ProgressBar x:Name="QuestionProgressBar" HorizontalAlignment="Left" Height="22" Margin="157,368,0,0" VerticalAlignment="Top" Width="245"/>
         <RadioButton x:Name="Question1Button" Content="Intitulé question 1" HorizontalAlignment="Left" Margin="72,136,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="Question2Button" Content="Intitulé question 2" HorizontalAlignment="Left" Margin="72,184,0,0" VerticalAlignment="Top"/>

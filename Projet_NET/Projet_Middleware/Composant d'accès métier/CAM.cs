@@ -30,8 +30,10 @@ namespace Projet_Middleware.Composant_d_accès_métier
                 Type typeClasse = assembly.GetType(this.namaspaceWF +  "." + classeApp);
                 if (typeClasse != null)
                 {
+                    Program.Debug("Execution de la tâche : " + msg.Invoke);
                     object classe = Activator.CreateInstance(typeClasse); // On instancie le bon workflow
                     msg = ((IWorkflow)classe).Exec(msg); // Et on l'execute
+                    Program.Debug("Tâche exécutée : " + msg.Invoke);
                 }
                 else
                 {

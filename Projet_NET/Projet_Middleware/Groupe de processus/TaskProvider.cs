@@ -42,11 +42,11 @@ namespace Projet_Middleware.Groupe_de_processus
                 break;
 
                 case "Ajouter_Joueur":
-                            msg.Invoke = "WF_Add_Players";
+                            msg.Invoke = "WF_Add_Player";
                 break;
 
                 case "Supprimer_Joueur":
-                            msg.Invoke = "WF_Del_Players";
+                            msg.Invoke = "WF_Del_Player";
                 break;
 
                 case "Supprimer_Metier":
@@ -78,7 +78,7 @@ namespace Projet_Middleware.Groupe_de_processus
                 break;
 
                 case "Modifier_Joueur":
-                            msg.Invoke = "WF_Upd_Players";
+                            msg.Invoke = "WF_Upd_Player";
                 break;
 
                 case "Modifier_Score":
@@ -113,7 +113,7 @@ namespace Projet_Middleware.Groupe_de_processus
                             reponse.Invoke = "Ajouter_Metier";
                 break;
 
-                case "WF_Add_Players":
+                case "WF_Add_Player":
                             reponse.Invoke = "Ajouter_Joueur";
                 break;
 
@@ -149,7 +149,7 @@ namespace Projet_Middleware.Groupe_de_processus
                             reponse.Invoke = "Modifier_Metier";
                 break;
 
-                case "WF_Upd_Players":
+                case "WF_Upd_Player":
                             reponse.Invoke = "Modifier_Joueur";
                 break;
 
