@@ -74,9 +74,9 @@
     <Compile Include="Couche métier\Composant technique\Objets en base\ReponseJeu.cs" />
     <Compile Include="Couche métier\Composant technique\ReversibleEncryption.cs" />
     <Compile Include="Couche métier\Composant technique\SMTPConfig.cs" />
-    <Compile Include="Couche métier\Composant technique\SmtpMail.cs" />
     <Compile Include="Couche métier\Composant technique\XMLLoader.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\IWorkflow.cs" />
+    <Compile Include="Couche métier\Contrôleur de workflow\WF_Add_Player.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Envoi_Mail.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Get_Classement.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Get_Questions_Jeu.cs" />

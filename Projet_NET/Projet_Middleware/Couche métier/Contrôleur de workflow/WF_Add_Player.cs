@@ -21,8 +21,8 @@ namespace Projet_Middleware.Couche_métier.Contrôleur_de_workflow
 
             System.Data.DataSet rs = (System.Data.DataSet)msg.Data[0];
 
-            if(rs.Tables[0].Rows.Count > 0)
-                msg.Statut = true;
+            msg.Statut = true;
+
             return msg;
         }
     }

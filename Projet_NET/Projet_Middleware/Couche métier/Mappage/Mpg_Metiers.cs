@@ -12,29 +12,37 @@ namespace Projet_Middleware.Couche_métier.Mappage
         public static string CH_DESCRIPTION = "Description_Metier";
         public static string CH_INTITULE = "Intitule_Metier";
 
-        static public string Rq_GetAllMetiers()
+        static public TSQLProcedure Rq_GetAllMetiers()
         {
-            return "";
+            TSQLProcedure proc = new TSQLProcedure("DisplayMetier", null);
+            return proc;
         }
 
-        static public string Rq_GetMetier()
+        static public TSQLProcedure Rq_DeleteMetier(int id)
         {
-            return "";
+            ProcedureParameter[] parameters = new ProcedureParameter[1];
+            parameters[0] = new ProcedureParameter("@id_metier", System.Data.OleDb.OleDbType.Integer, id);
+            TSQLProcedure proc = new TSQLProcedure("SuppMetier", parameters);
+            return proc;
         }
 
-        static public string Rq_DeleteMetier()
+        static public TSQLProcedure Rq_UpdateMetier(int id, string intitule, string description)
         {
-            return "";
+            ProcedureParameter[] parameters = new ProcedureParameter[3];
+            parameters[0] = new ProcedureParameter("@id_metier", System.Data.OleDb.OleDbType.Integer, id);
+            parameters[1] = new ProcedureParameter("@intitule_metier", System.Data.OleDb.OleDbType.VarChar, intitule);
+            parameters[2] = new ProcedureParameter("@description_metier", System.Data.OleDb.OleDbType.VarChar, description);
+            TSQLProcedure proc = new TSQLProcedure("ModifMetier", parameters);
+            return proc;
         }
 
-        static public string Rq_UpdateMetier()
+        static public TSQLProcedure Rq_CreateMetier(string intitule, string description)
         {
-            return "";
-        }
-
-        static public string Rq_CreateMetier()
-        {
-            return "";
+            ProcedureParameter[] parameters = new ProcedureParameter[2];
+            parameters[0] = new ProcedureParameter("@intitule_metier", System.Data.OleDb.OleDbType.VarChar, intitule);
+            parameters[1] = new ProcedureParameter("@description_metier", System.Data.OleDb.OleDbType.VarChar, description);
+            TSQLProcedure proc = new TSQLProcedure("AddMetier", parameters);
+            return proc;
         }
     }
 }

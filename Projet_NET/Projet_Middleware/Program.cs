@@ -15,7 +15,20 @@ namespace Projet_Middleware
         {
             Console.Title = "Projet Middleware";
             Console.WriteLine("~~~~~~ MIDDLEWARE ~~~~~~");
+
+            //DEBUGTestFunction();
+            
             MessageManager.StartListening();
+        }
+
+        public static void DEBUGTestFunction()
+        {
+            MessageSerializable.Message msg = new MessageSerializable.Message();
+            msg.Data[0] = "Franek";
+            msg.Data[1] = 1337;
+            Couche_métier.Contrôleur_de_workflow.WF_Add_Player wf_addPlayer = new Couche_métier.Contrôleur_de_workflow.WF_Add_Player();
+            msg = wf_addPlayer.Exec(msg);
+            Debug("Ajout du joueur : "+msg.Statut.ToString());
         }
 
         public static void Debug(string msg)
