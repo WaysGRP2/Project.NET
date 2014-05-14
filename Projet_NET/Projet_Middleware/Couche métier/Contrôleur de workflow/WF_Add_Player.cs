@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Projet_Middleware.Service_étendu;
 using Projet_Middleware.Couche_métier.Mappage;
-using Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base;
 using MessageSerializable;
 
 

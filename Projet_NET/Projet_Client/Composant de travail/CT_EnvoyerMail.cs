@@ -8,7 +8,7 @@ using Projet_Client.Composant_de_communication;
 
 namespace Projet_Client.Composant_de_travail
 {
-    class CT_EnvoyerMail
+    class CT_EnvoyerMail : IComposantTravail
     {
         Message msg;
 
@@ -17,15 +17,15 @@ namespace Projet_Client.Composant_de_travail
             msg = new Message();
         }
 
-        public Message Exec(string mail)
+        public Message Exec(Message oMsg)
         {
             Message msg = new Message();
-            msg.AppName = "Client";
+            msg.AppName = Properties.Settings.Default.AppName;
             msg.Invoke = ServeurTask.ENVOYER_MAIL;
             msg.PSecurity = "A faire";
             msg.Statut = false;
             msg.Info = "J'essaie d'envoyer un mail";
-            msg.Data[0] = mail;
+            msg.Data[0] = oMsg.Data[0];
             msg.Data[1] = "Corps du message";
             msg.Token = "20942948CU4209U";
             Message reponse = MessageManager.SendMessageToServer(msg);

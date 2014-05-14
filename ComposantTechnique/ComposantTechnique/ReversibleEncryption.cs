@@ -7,9 +7,9 @@ using System.Security.Cryptography;
 using System.IO;
 using MessageSerializable;
 
-namespace Projet_Middleware.Couche_métier.Composant_technique
+namespace ComposantTechnique
 {
-    class ReversibleEncryption
+    public class ReversibleEncryption
     {
         private static string skey = "22482984592";
 
@@ -117,8 +117,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
             }
             catch (Exception ex)
             {
-                // failed to encrypt file
-                Program.Debug(ex.Message);
+
             }
         }
 
@@ -157,8 +156,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
             }
             catch (Exception ex)
             {
-                // failed to decrypt file
-                Program.Debug(ex.Message);
+
             }
         }
 

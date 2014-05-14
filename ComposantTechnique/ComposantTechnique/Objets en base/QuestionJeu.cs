@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
+namespace ComposantTechnique.Objets_en_base
 {
-    class QuestionOrientation : ObjetEnBase
+    public class QuestionJeu : ObjetEnBase
     {
         public int id;
         private string question;
-        private List<ReponseOrientation> reponses;
+        private List<ReponseJeu> reponses;
         private int order;
 
-        public QuestionOrientation(int id, string question, List<ReponseOrientation> reponses, int order)
+        public QuestionJeu(int id, string question, List<ReponseJeu> reponses, int order)
         {
             this.id = id;
             this.question = question;
@@ -21,7 +21,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
             this.order = order;
         }
 
-        public QuestionOrientation(string question, List<ReponseOrientation> reponses, int order)
+        public QuestionJeu(string question, List<ReponseJeu> reponses, int order)
         {
             this.id = -1;
             this.question = question;
@@ -52,7 +52,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
             set { question = value; }
         }
 
-        public List<ReponseOrientation> Reponses
+        public List<ReponseJeu> Reponses
         {
             get { return reponses; }
             set { reponses = value; }

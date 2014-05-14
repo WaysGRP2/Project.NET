@@ -9,9 +9,9 @@ using System.Xml;
 using System.IO;
 using System.Text;
 
-namespace Projet_Middleware.Couche_métier.Composant_technique
+namespace ComposantTechnique
 {
-    class XMLLoader
+    public class XMLLoader
     {
         public enum CONFIG_TYPE { SQL_Server_Config, SMTP_Config };
         public static string SQLSERVER_CONFIG_PATH = "../../ConfigFiles/SQLServerConfig.xml";

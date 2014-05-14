@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
-using Projet_Middleware.Couche_métier.Composant_technique;
+using ComposantTechnique;
 using Projet_Middleware.Couche_métier.Contrôleur_de_workflow;
 using MessageSerializable;
 

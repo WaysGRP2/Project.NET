@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using MessageSerializable;
 
-namespace Projet_Middleware.Couche_métier.Composant_technique
+namespace ComposantTechnique
 {
-    class MD5Crypter
+    public class MD5Crypter
     {
         public Message Encrypt(Message msg)
         {

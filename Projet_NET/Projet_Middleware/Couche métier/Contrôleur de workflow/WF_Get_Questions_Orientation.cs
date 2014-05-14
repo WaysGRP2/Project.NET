@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MessageSerializable;
-using Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base;
+using ComposantTechnique.Objets_en_base;
 using Projet_Middleware.Couche_métier.Mappage;
 using Projet_Middleware.Service_étendu;
 

@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Projet_Middleware.Composant_d_accès_métier;
-using Projet_Middleware.Couche_métier.Composant_technique;
+using ComposantTechnique;
 using MessageSerializable;
 using Projet_Middleware.Groupe_de_processus;
 
@@ -16,6 +13,7 @@ namespace Projet_Middleware.Composant_Serveur
         {
             List<string> authorizedApplications = new List<string>();
             authorizedApplications.Add("Client");
+            authorizedApplications.Add("Middleware");
 
             Message reponseNegative = msg;
             reponseNegative.Statut = false;

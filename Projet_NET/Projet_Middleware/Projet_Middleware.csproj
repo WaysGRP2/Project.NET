@@ -47,10 +47,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ComposantTechnique">
+      <HintPath>..\ComposantTechnique.dll</HintPath>
+    </Reference>
     <Reference Include="MessageSerializable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MessageSerializable.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
@@ -64,17 +68,6 @@
     <Compile Include="Composant d%27accès métier\CAM.cs" />
     <Compile Include="Composant Serveur\EntreePlateforme.cs" />
     <Compile Include="Composant Serveur\MessageManager.cs" />
-    <Compile Include="Couche métier\Composant technique\MD5Crypter.cs" />
-    <Compile Include="Couche métier\Composant technique\Objets en base\Joueur.cs" />
-    <Compile Include="Couche métier\Composant technique\Objets en base\ObjetEnBase.cs" />
-    <Compile Include="Couche métier\Composant technique\Objets en base\Metier.cs" />
-    <Compile Include="Couche métier\Composant technique\Objets en base\ReponseOrientation.cs" />
-    <Compile Include="Couche métier\Composant technique\Objets en base\QuestionOrientation.cs" />
-    <Compile Include="Couche métier\Composant technique\Objets en base\QuestionJeu.cs" />
-    <Compile Include="Couche métier\Composant technique\Objets en base\ReponseJeu.cs" />
-    <Compile Include="Couche métier\Composant technique\ReversibleEncryption.cs" />
-    <Compile Include="Couche métier\Composant technique\SMTPConfig.cs" />
-    <Compile Include="Couche métier\Composant technique\XMLLoader.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\IWorkflow.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Add_Metier.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Add_Player.cs" />

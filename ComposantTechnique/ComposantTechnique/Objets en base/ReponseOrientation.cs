@@ -4,32 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
+namespace ComposantTechnique.Objets_en_base
 {
-    class ReponseJeu : ObjetEnBase
+    public class ReponseOrientation : ObjetEnBase
     {
         public int id;
         private int id_question;
         private string reponseText;
-        private int points;
-        private bool isCorrect;
+        private Metier metier;
 
-        public ReponseJeu(int id, int id_question, string reponseText, int points, bool isCorrect)
+        public ReponseOrientation(int id, int id_question, string reponseText, Metier metier)
         {
             this.id = id;
             this.id_question = id_question;
             this.reponseText = reponseText;
-            this.points = points;
-            this.isCorrect = isCorrect;
+            this.metier = metier;
         }
 
-        public ReponseJeu(int id_question, string reponseText, int points, bool isCorrect)
+        public ReponseOrientation(int id_question, string reponseText, Metier metier)
         {
             this.id = -1;
             this.id_question = id_question;
             this.reponseText = reponseText;
-            this.points = points;
-            this.isCorrect = isCorrect;
+            this.metier = metier;
         }
 
         public void SaveInBase()
@@ -61,16 +58,10 @@ namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
             set { reponseText = value; }
         }
 
-        public int Points
+        public Metier Metier
         {
-            get { return points; }
-            set { points = value; }
-        }
-
-        public bool IsCorrect
-        {
-            get { return isCorrect; }
-            set { isCorrect = value; }
+            get { return metier; }
+            set { metier = value; }
         }
     }
 }

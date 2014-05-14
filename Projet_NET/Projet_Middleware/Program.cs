@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using Projet_Middleware.Composant_Serveur;
-using Projet_Middleware.Couche_métier.Composant_technique;
+
 
 namespace Projet_Middleware
 {
@@ -16,7 +16,7 @@ namespace Projet_Middleware
             Console.Title = "Projet Middleware";
             Console.WriteLine("~~~~~~ MIDDLEWARE ~~~~~~");
 
-            DEBUGTestFunction();
+            //DEBUGTestFunction();
             
             MessageManager.StartListening();
         }
@@ -24,10 +24,12 @@ namespace Projet_Middleware
         public static void DEBUGTestFunction()
         {
             MessageSerializable.Message msg = new MessageSerializable.Message();
-            msg.Data[0] = "Pipoune";
+            msg.AppName = "Client";
+            msg.Invoke = "Tâche demandée";
+            msg.Data[0] = "William";
             msg.Data[1] = 666;
-            Couche_métier.Contrôleur_de_workflow.WF_Add_Player wf_addPlayer = new Couche_métier.Contrôleur_de_workflow.WF_Add_Player();
-            msg = wf_addPlayer.Exec(msg);
+            Composant_Serveur.EntreePlateforme.Check(msg);
+            
             Debug("Ajout du joueur : "+msg.Statut.ToString());
         }
 

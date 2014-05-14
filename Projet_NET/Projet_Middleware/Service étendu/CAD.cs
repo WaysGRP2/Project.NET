@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.OleDb;
-using Projet_Middleware.Couche_métier.Composant_technique;
+using ComposantTechnique;
 using Projet_Middleware.Couche_métier.Mappage;
 
 namespace Projet_Middleware.Service_étendu

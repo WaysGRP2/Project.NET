@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
+namespace ComposantTechnique.Objets_en_base
 {
-    abstract class ObjetEnBase
+    public abstract class ObjetEnBase
     {
         private int id;
 

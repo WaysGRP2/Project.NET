@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
+namespace ComposantTechnique.Objets_en_base
 {
-    class Joueur : ObjetEnBase
+    public class Joueur : ObjetEnBase
     {
         public int id;
         private string nom;

@@ -30,7 +30,9 @@ namespace Projet_Client.Composant_utilisateur
         private void SendMailButton_Click(object sender, RoutedEventArgs e)
         {
             CT_EnvoyerMail work = new CT_EnvoyerMail();
-            Message reponse = work.Exec("crepinvcc@hotmail.com");
+            Message msg = new Message();
+            msg.Data[0] = "crepinvcc@hotmail.com";
+            Message reponse = work.Exec(msg);
 
             this.DebugTextBlock.Text = "Tâche :" + reponse.Invoke + "    Réussi :" + reponse.Statut.ToString() + "\n";
         }
@@ -43,13 +45,13 @@ namespace Projet_Client.Composant_utilisateur
 
         private void LaunchGameButton_Click(object sender, RoutedEventArgs e)
         {
-            Fentre_Questionnaire fq = new Fentre_Questionnaire();
+            Fenetre_Questionnaire fq = new Fenetre_Questionnaire(Fenetre_Questionnaire.QuestionnaireType.Jeu);
             fq.Show();
         }
 
         private void LaunchOrientationButton_Click(object sender, RoutedEventArgs e)
         {
-            Fentre_Questionnaire fq = new Fentre_Questionnaire();
+            Fenetre_Questionnaire fq = new Fenetre_Questionnaire(Fenetre_Questionnaire.QuestionnaireType.Orientation);
             fq.Show();
         }
     }

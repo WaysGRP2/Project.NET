@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ComposantTechnique, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ComposantTechnique.dll</HintPath>
+    </Reference>
     <Reference Include="MessageSerializable">
       <HintPath>..\MessageSerializable.dll</HintPath>
     </Reference>
@@ -65,6 +69,8 @@
   <ItemGroup>
     <Compile Include="Composant de communication\Task.cs" />
     <Compile Include="Composant de travail\CT_EnvoyerMail.cs" />
+    <Compile Include="Composant de travail\CT_Get_Questionnaire.cs" />
+    <Compile Include="Composant de travail\IComposantTravail.cs" />
     <Compile Include="Composant utilisateur\Fenetre_Accueil.xaml.cs">
       <DependentUpon>Fenetre_Accueil.xaml</DependentUpon>
     </Compile>

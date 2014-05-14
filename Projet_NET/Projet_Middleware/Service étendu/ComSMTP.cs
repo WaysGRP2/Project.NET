@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Mail;
-using Projet_Middleware.Couche_métier.Composant_technique;
+using ComposantTechnique;
 
 namespace Projet_Middleware.Service_étendu
 {

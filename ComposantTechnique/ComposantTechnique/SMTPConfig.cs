@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projet_Middleware.Couche_métier.Composant_technique
+namespace ComposantTechnique
 {
-    class SMTPConfig
+    public class SMTPConfig
     {
         private string address;
         private string username;
