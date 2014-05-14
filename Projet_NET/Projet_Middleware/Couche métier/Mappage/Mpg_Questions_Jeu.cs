@@ -14,27 +14,43 @@ namespace Projet_Middleware.Couche_métier.Mappage
 
         static public TSQLProcedure Rq_GetAllQuestions()
         {
-            return new TSQLProcedure(null, null);
-        }
-
+            TSQLProcedure proc = new TSQLProcedure("DisplayQuestionJeu", null);
+            return proc;
+        } 
+        /*
         static public TSQLProcedure Rq_GetQuestion()
         {
-            return new TSQLProcedure(null, null);
+            TSQLProcedure proc = new TSQLProcedure ("DisplayQuestionJeu", null)
+            return proc;
+        } */
+
+        static public TSQLProcedure Rq_DeleteQuestion(int id)
+        {
+            ProcedureParameter[] parameters = new ProcedureParameter[1];
+            parameters[0] = new ProcedureParameter("@id_question_jeu", System.Data.OleDb.OleDbType.Integer, id);
+            TSQLProcedure proc = new TSQLProcedure("SupprQuestionJeu", parameters);
+            return proc;
         }
 
-        static public TSQLProcedure Rq_DeleteQuestion()
+        static public TSQLProcedure Rq_UpdateQuestion(int id, string intitule, int point)
         {
-            return new TSQLProcedure(null, null);
+            ProcedureParameter[] parameters = new ProcedureParameter[3];
+            parameters[0] = new ProcedureParameter("@id_question_jeu", System.Data.OleDb.OleDbType.Integer, id);
+            parameters[1] = new ProcedureParameter("@intitule_question", System.Data.OleDb.OleDbType.VarChar, intitule);
+            parameters[2] = new ProcedureParameter("@point", System.Data.OleDb.OleDbType.Integer, point);
+
+            TSQLProcedure proc = new TSQLProcedure("ModifQuestionJeu", parameters);
+            return proc;
         }
 
-        static public TSQLProcedure Rq_UpdateQuestion()
+        static public TSQLProcedure Rq_CreateQuestion(string intitule, int ordre)
         {
-            return new TSQLProcedure(null, null);
-        }
+            ProcedureParameter[] parameters = new ProcedureParameter[2];
+            parameters[0] = new ProcedureParameter("@intitule_question_jeu", System.Data.OleDb.OleDbType.VarChar, intitule);
+            parameters[1] = new ProcedureParameter("@ordre", System.Data.OleDb.OleDbType.Integer, ordre);
 
-        static public TSQLProcedure Rq_CreateQuestion()
-        {
-            return new TSQLProcedure(null, null);
+            TSQLProcedure proc = new TSQLProcedure("AddQuestionJeu", parameters); 
+            return proc;
         }
     }
 }

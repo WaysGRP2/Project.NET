@@ -15,32 +15,48 @@ namespace Projet_Middleware.Couche_métier.Mappage
 
         static public TSQLProcedure Rq_GetAllReponses()
         {
-            return new TSQLProcedure(null, null);
+            TSQLProcedure proc = new TSQLProcedure("DisplayReponseJeu", null);
+            return proc;
         }
-
+        /*
         static public TSQLProcedure Rq_GetReponse()
         {
-            return new TSQLProcedure(null, null);
+            TSQLProcedure proc = new TSQLProcedure("DisplayReponseJeu", null);
+            return proc;
+        }
+        
+        static public string Rq_GetReponseByQuestionID(int id)
+        {
+            return "";
+        }
+        
+        static public string Rq_DeleteReponse()
+        {
+            return "";
+        }
+        */
+        static public TSQLProcedure Rq_UpdateReponse(int id, string intitule, int point, bool iscorrect)
+        {
+            ProcedureParameter[] parameters = new ProcedureParameter[4];
+            parameters[0] = new ProcedureParameter("@id_reponse_jeu", System.Data.OleDb.OleDbType.Integer, id);
+            parameters[1] = new ProcedureParameter("@intitule_reponse", System.Data.OleDb.OleDbType.VarChar, intitule);
+            parameters[2] = new ProcedureParameter("@point", System.Data.OleDb.OleDbType.Integer, point);
+            parameters[3] = new ProcedureParameter("@etat", System.Data.OleDb.OleDbType.Boolean, iscorrect);
+
+            TSQLProcedure proc = new TSQLProcedure("ModifReponseJeu", parameters);
+            return proc;
         }
 
-        static public TSQLProcedure Rq_GetReponseByQuestionID(int id)
+        static public TSQLProcedure Rq_CreateReponse(int id, string intitule, int point, bool iscorrect)
         {
-            return new TSQLProcedure(null, null);
-        }
+            ProcedureParameter[] parameters = new ProcedureParameter[4];
+            parameters[0] = new ProcedureParameter("@id_reponse_jeu", System.Data.OleDb.OleDbType.Integer, id);
+            parameters[1] = new ProcedureParameter("@intitule_reponse", System.Data.OleDb.OleDbType.VarChar, intitule);
+            parameters[2] = new ProcedureParameter("@point", System.Data.OleDb.OleDbType.Integer, point);
+            parameters[3] = new ProcedureParameter("@etat", System.Data.OleDb.OleDbType.Boolean, iscorrect);
 
-        static public TSQLProcedure Rq_DeleteReponse()
-        {
-            return new TSQLProcedure(null, null);
-        }
-
-        static public TSQLProcedure Rq_UpdateReponse()
-        {
-            return new TSQLProcedure(null, null);
-        }
-
-        static public TSQLProcedure Rq_CreateReponse()
-        {
-            return new TSQLProcedure(null, null);
+            TSQLProcedure proc = new TSQLProcedure("AddReponseJeu", parameters);
+            return proc;
         }
     }
 }
