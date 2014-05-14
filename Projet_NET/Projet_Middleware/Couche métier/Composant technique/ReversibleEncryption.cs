@@ -86,7 +86,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
 
         public static void EncryptFile(string inputFile)
         {
-            string outputFile = inputFile;
+            string outputFile = inputFile + ".new";
             try
             {
                 using (RijndaelManaged aes = new RijndaelManaged())
@@ -113,6 +113,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
                         }
                     }
                 }
+                RenameFile(outputFile, inputFile);
             }
             catch (Exception ex)
             {
@@ -123,7 +124,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
 
         public static void DecryptFile(string inputFile)
         {
-            string outputFile = inputFile;
+            string outputFile = inputFile + ".new";
             try
             {
                 using (RijndaelManaged aes = new RijndaelManaged())
@@ -152,12 +153,20 @@ namespace Projet_Middleware.Couche_métier.Composant_technique
                         }
                     }
                 }
+                RenameFile(outputFile, inputFile);
             }
             catch (Exception ex)
             {
                 // failed to decrypt file
                 Program.Debug(ex.Message);
             }
+        }
+
+        public static void RenameFile(string oldName, string newName)
+        {
+            File.Delete(newName);
+            File.Move(oldName, newName);
+            return;
         }
     }
 }

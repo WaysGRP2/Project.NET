@@ -30,7 +30,7 @@ namespace Projet_Middleware.Couche_métier.Mappage
         {
             ProcedureParameter[] parameters = new ProcedureParameter[1];
             parameters[0] = new ProcedureParameter("@id", System.Data.OleDb.OleDbType.Integer, id);
-            TSQLProcedure proc = new TSQLProcedure("Supp_Joueur", parameters);
+            TSQLProcedure proc = new TSQLProcedure("SuppJoueur", parameters);
             return proc;
         }
 
