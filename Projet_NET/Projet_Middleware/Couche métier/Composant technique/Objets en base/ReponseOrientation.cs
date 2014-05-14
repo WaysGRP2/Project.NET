@@ -9,23 +9,23 @@ namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
     class ReponseOrientation : ObjetEnBase
     {
         public int id;
-        private string reponseText;
-        private bool isCorrect;
+        private int id_question;
+        private string reponseText;;
         private Metier metier;
 
-        public ReponseOrientation(int id, string reponseText, bool isCorrect, Metier metier)
+        public ReponseOrientation(int id, int id_question, string reponseText, Metier metier)
         {
             this.id = id;
+            this.id_question = id_question;
             this.reponseText = reponseText;
-            this.isCorrect = isCorrect;
             this.metier = metier;
         }
 
-        public ReponseOrientation(string reponseText, bool isCorrect, Metier metier)
+        public ReponseOrientation(int id_question, string reponseText, Metier metier)
         {
             this.id = -1;
+            this.id_question = id_question;
             this.reponseText = reponseText;
-            this.isCorrect = isCorrect;
             this.metier = metier;
         }
 
@@ -46,16 +46,16 @@ namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
             set { id = value; }
         }
 
+        public int ID_Question
+        {
+            get { return id_question; }
+            set { id_question = value; }
+        }
+
         public string ReponseText
         {
             get { return reponseText; }
             set { reponseText = value; }
-        }
-
-        public bool IsCorrect
-        {
-            get { return isCorrect; }
-            set { isCorrect = value; }
         }
 
         public Metier Metier

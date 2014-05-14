@@ -14,7 +14,7 @@ namespace Projet_Middleware.Couche_métier.Contrôleur_de_workflow
         {
             if(msg.Data[0].GetType() == typeof(string) && msg.Data[1].GetType() == typeof(string))
             {
-                ComSMTP.GetInstance().SendMail(msg);
+                msg = ComSMTP.GetInstance().SendMail(msg);
                 return msg;
             }
 

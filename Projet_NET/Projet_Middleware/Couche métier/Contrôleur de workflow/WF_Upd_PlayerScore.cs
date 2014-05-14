@@ -9,7 +9,7 @@ using Projet_Middleware.Couche_métier.Mappage;
 
 namespace Projet_Middleware.Couche_métier.Contrôleur_de_workflow
 {
-    class WF_Udp_PlayerScore : IWorkflow
+    class WF_Upd_PlayerScore : IWorkflow
     {
         public Message Exec(Message msg)
         {

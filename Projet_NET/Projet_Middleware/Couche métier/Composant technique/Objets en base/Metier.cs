@@ -9,18 +9,21 @@ namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
     class Metier : ObjetEnBase
     {
         public int id;
-        private string nom;
+        private string intitule;
+        private string description;
 
-        public Metier(int id, string nom)
+        public Metier(int id, string intitule, string description)
         {
             this.id = id;
-            this.nom = nom;
+            this.intitule = intitule;
+            this.description = description;
         }
 
-        public Metier(string nom)
+        public Metier(string intitule, string description)
         {
             this.id = -1;
-            this.nom = nom;
+            this.intitule = intitule;
+            this.description = description;
         }
 
         public void SaveInBase()
@@ -40,10 +43,16 @@ namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
             set { id = value; }
         }
 
-        public string Nom
+        public string Intitule
         {
-            get { return nom; }
-            set { nom = value; }
+            get { return intitule; }
+            set { intitule= value; }
+        }
+
+        public string Description
+        {
+            get { return description; }
+            set { description = value; }
         }
     }
 }
