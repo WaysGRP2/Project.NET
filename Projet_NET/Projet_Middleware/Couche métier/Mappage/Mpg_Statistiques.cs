@@ -15,29 +15,29 @@ namespace Projet_Middleware.Couche_métier.Mappage
         public static string CH_DIPLOME_TYPE = "Type_Diplome";
         public static string CH_CONNAISSANCES = "Connaissance";
 
-        static public string Rq_GetAllStats()
+        static public TSQLProcedure Rq_GetAllStats()
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
 
-        static public string Rq_GetStat()
+        static public TSQLProcedure Rq_GetStat()
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
 
-        static public string Rq_DeleteStat()
+        static public TSQLProcedure Rq_DeleteStat()
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
 
-        static public string Rq_UpdateStat()
+        static public TSQLProcedure Rq_UpdateStat()
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
 
-        static public string Rq_CreateStat()
+        static public TSQLProcedure Rq_CreateStat()
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
     }
 }

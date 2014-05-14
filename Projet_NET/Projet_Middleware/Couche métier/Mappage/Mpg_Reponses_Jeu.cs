@@ -13,34 +13,34 @@ namespace Projet_Middleware.Couche_métier.Mappage
         public static string CH_POINTS = "Point";
         public static string CH_ISCORRECT = "Etat";
 
-        static public string Rq_GetAllReponses()
+        static public TSQLProcedure Rq_GetAllReponses()
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
 
-        static public string Rq_GetReponse()
+        static public TSQLProcedure Rq_GetReponse()
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
 
-        static public string Rq_GetReponseByQuestionID(int id)
+        static public TSQLProcedure Rq_GetReponseByQuestionID(int id)
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
 
-        static public string Rq_DeleteReponse()
+        static public TSQLProcedure Rq_DeleteReponse()
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
 
-        static public string Rq_UpdateReponse()
+        static public TSQLProcedure Rq_UpdateReponse()
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
 
-        static public string Rq_CreateReponse()
+        static public TSQLProcedure Rq_CreateReponse()
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
     }
 }

@@ -12,29 +12,29 @@ namespace Projet_Middleware.Couche_métier.Mappage
         public static string CH_ORDRE = "Ordre_O";
         public static string CH_INTITULE = "Intitule_Question_Orient";
 
-        static public string Rq_GetAllQuestions()
+        static public TSQLProcedure Rq_GetAllQuestions()
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
 
-        static public string Rq_GetQuestion()
+        static public TSQLProcedure Rq_GetQuestion()
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
 
-        static public string Rq_DeleteQuestion()
+        static public TSQLProcedure Rq_DeleteQuestion()
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
 
-        static public string Rq_UpdateQuestion()
+        static public TSQLProcedure Rq_UpdateQuestion()
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
 
-        static public string Rq_CreateQuestion()
+        static public TSQLProcedure Rq_CreateQuestion()
         {
-            return "";
+            return new TSQLProcedure(null, null);
         }
     }
 }
