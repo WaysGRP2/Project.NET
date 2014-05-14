@@ -14,32 +14,27 @@ namespace Projet_Middleware.Couche_métier.Mappage
 
         static public TSQLProcedure Rq_GetAllReponses()
         {
-            return new TSQLProcedure(null, null);
+            TSQLProcedure proc = new TSQLProcedure("DisplayReponseOrient", null);
+            return proc;
         }
 
-        static public TSQLProcedure Rq_GetReponse()
+        static public TSQLProcedure Rq_UpdateReponse(int id_reponse_orient, string intitule_reponse_orient, int id_metier)
         {
-            return new TSQLProcedure(null, null);
+            ProcedureParameter[] parameters = new ProcedureParameter[3];
+            parameters[0] = new ProcedureParameter("@id_reponse_orient", System.Data.OleDb.OleDbType.Integer, id_reponse_orient);
+            parameters[1] = new ProcedureParameter("@intitule_reponse_orient", System.Data.OleDb.OleDbType.VarChar, intitule_reponse_orient);
+            parameters[2] = new ProcedureParameter("@id_metier", System.Data.OleDb.OleDbType.Integer, id_metier);
+            TSQLProcedure proc = new TSQLProcedure("ModifReponseOrient", parameters);
+            return proc;
         }
 
-        static public TSQLProcedure Rq_GetReponseByQuestionID(int id)
+        static public TSQLProcedure Rq_CreateReponse(string intitule_reponse_orient, int id_metier)
         {
-            return new TSQLProcedure(null, null);
-        }
-
-        static public TSQLProcedure Rq_DeleteReponse()
-        {
-            return new TSQLProcedure(null, null);
-        }
-
-        static public TSQLProcedure Rq_UpdateReponse()
-        {
-            return new TSQLProcedure(null, null);
-        }
-
-        static public TSQLProcedure Rq_CreateReponse()
-        {
-            return new TSQLProcedure(null, null);
+            ProcedureParameter[] parameters = new ProcedureParameter[2];
+            parameters[0] = new ProcedureParameter("@intitule_reponse_orient", System.Data.OleDb.OleDbType.VarChar, intitule_reponse_orient);
+            parameters[1] = new ProcedureParameter("@id_metier", System.Data.OleDb.OleDbType.Integer, id_metier);
+            TSQLProcedure proc = new TSQLProcedure("AddReponseOrient", parameters);
+            return proc;
         }
     }
 }

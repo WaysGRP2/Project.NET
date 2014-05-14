@@ -14,27 +14,36 @@ namespace Projet_Middleware.Couche_métier.Mappage
 
         static public TSQLProcedure Rq_GetAllQuestions()
         {
-            return new TSQLProcedure(null, null);
+            TSQLProcedure proc = new TSQLProcedure("DisplayQuestionOrient", null);
+            return proc;
         }
 
-        static public TSQLProcedure Rq_GetQuestion()
+
+        static public TSQLProcedure Rq_DeleteQuestion(int id)
         {
-            return new TSQLProcedure(null, null);
+            ProcedureParameter[] parameters = new ProcedureParameter[1];
+            parameters[0] = new ProcedureParameter("@id", System.Data.OleDb.OleDbType.Integer, id);
+            TSQLProcedure proc = new TSQLProcedure("SuppQuestionJeu", parameters);
+            return proc;
         }
 
-        static public TSQLProcedure Rq_DeleteQuestion()
+        static public TSQLProcedure Rq_UpdateQuestion(int id_question_orient, string intitule_question_orient, int ordre_orient)
         {
-            return new TSQLProcedure(null, null);
+            ProcedureParameter[] parameters = new ProcedureParameter[3];
+            parameters[0] = new ProcedureParameter("@id_question_orient", System.Data.OleDb.OleDbType.Integer, id_question_orient);
+            parameters[1] = new ProcedureParameter("@intitule_question_orient", System.Data.OleDb.OleDbType.VarChar, intitule_question_orient);
+            parameters[2] = new ProcedureParameter("@ordre", System.Data.OleDb.OleDbType.Integer, ordre_orient);
+            TSQLProcedure proc = new TSQLProcedure("ModifQuestionOrient", parameters); 
+            return proc;
         }
 
-        static public TSQLProcedure Rq_UpdateQuestion()
+        static public TSQLProcedure Rq_CreateQuestion(string intitule_question_orient, int ordre_orient)
         {
-            return new TSQLProcedure(null, null);
-        }
-
-        static public TSQLProcedure Rq_CreateQuestion()
-        {
-            return new TSQLProcedure(null, null);
+            ProcedureParameter [] parameters = new ProcedureParameter[2];
+            parameters[0] = new ProcedureParameter("@intitule_question_orient", System.Data.OleDb.OleDbType.VarChar, intitule_question_orient);
+            parameters[1] = new ProcedureParameter("@ordre", System.Data.OleDb.OleDbType.Integer, ordre_orient);
+            TSQLProcedure proc = new TSQLProcedure("AddQuestionOrient", parameters);
+            return proc;
         }
     }
 }
