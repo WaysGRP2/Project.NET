@@ -31,7 +31,6 @@ namespace Projet_Middleware.Couche_métier.Contrôleur_de_workflow
             }
 
             msg.Data[0] = classement;
-            msg.Statut = true;
             return msg;
         }
     }

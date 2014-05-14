@@ -76,10 +76,16 @@
     <Compile Include="Couche métier\Composant technique\SMTPConfig.cs" />
     <Compile Include="Couche métier\Composant technique\XMLLoader.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\IWorkflow.cs" />
+    <Compile Include="Couche métier\Contrôleur de workflow\WF_Add_Metier.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Add_Player.cs" />
+    <Compile Include="Couche métier\Contrôleur de workflow\WF_Del_Metier.cs" />
+    <Compile Include="Couche métier\Contrôleur de workflow\WF_Del_Player.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Envoi_Mail.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Get_Classement.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Get_Questions_Jeu.cs" />
+    <Compile Include="Couche métier\Contrôleur de workflow\WF_Udp_Metier.cs" />
+    <Compile Include="Couche métier\Contrôleur de workflow\WF_Udp_PlayerScore.cs" />
+    <Compile Include="Couche métier\Contrôleur de workflow\WF_Upd_Player.cs" />
     <Compile Include="Couche métier\Mappage\Mpg_Administrateurs.cs" />
     <Compile Include="Couche métier\Mappage\Mpg_Joueurs.cs" />
     <Compile Include="Couche métier\Mappage\Mpg_Metiers.cs" />

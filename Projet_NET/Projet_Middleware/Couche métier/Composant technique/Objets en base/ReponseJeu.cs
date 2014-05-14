@@ -9,21 +9,24 @@ namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
     class ReponseJeu : ObjetEnBase
     {
         public int id;
+        private int id_question;
         private string reponseText;
         private int points;
         private bool isCorrect;
 
-        public ReponseJeu(int id, string reponseText, int points, bool isCorrect)
+        public ReponseJeu(int id, int id_question, string reponseText, int points, bool isCorrect)
         {
             this.id = id;
+            this.id_question = id_question;
             this.reponseText = reponseText;
             this.points = points;
             this.isCorrect = isCorrect;
         }
 
-        public ReponseJeu(string reponseText, int points, bool isCorrect)
+        public ReponseJeu(int id_question, string reponseText, int points, bool isCorrect)
         {
             this.id = -1;
+            this.id_question = id_question;
             this.reponseText = reponseText;
             this.points = points;
             this.isCorrect = isCorrect;
@@ -44,6 +47,12 @@ namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
         {
             get { return id; }
             set { id = value; }
+        }
+
+        public int ID_Question
+        {
+            get { return id_question; }
+            set { id_question = value; }
         }
 
         public string ReponseText

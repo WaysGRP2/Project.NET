@@ -20,8 +20,6 @@ namespace Projet_Middleware.Couche_métier.Contrôleur_de_workflow
 
             msg = CAD.GetInstance().Execute_StockedProcedure(msg);
 
-            msg.Statut = true;
-
             return msg;
         }
     }

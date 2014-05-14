@@ -8,6 +8,7 @@ namespace Projet_Middleware.Couche_métier.Mappage
 {
     class Mpg_Reponses_Jeu
     {
+        public static string CH_ID = "Id_Reponse_J";
         public static string CH_ID_QUESTION = "Id_Question_J";
         public static string CH_INTITULE = "Intitule_Reponse_Jeu";
         public static string CH_POINTS = "Point";
@@ -18,23 +19,7 @@ namespace Projet_Middleware.Couche_métier.Mappage
             TSQLProcedure proc = new TSQLProcedure("DisplayReponseJeu", null);
             return proc;
         }
-        /*
-        static public TSQLProcedure Rq_GetReponse()
-        {
-            TSQLProcedure proc = new TSQLProcedure("DisplayReponseJeu", null);
-            return proc;
-        }
-        
-        static public string Rq_GetReponseByQuestionID(int id)
-        {
-            return "";
-        }
-        
-        static public string Rq_DeleteReponse()
-        {
-            return "";
-        }
-        */
+
         static public TSQLProcedure Rq_UpdateReponse(int id, string intitule, int point, bool iscorrect)
         {
             ProcedureParameter[] parameters = new ProcedureParameter[4];
