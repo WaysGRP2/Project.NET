@@ -10,7 +10,7 @@ namespace Projet_Middleware.Couche_métier.Composant_technique.Objets_en_base
     {
         public int id;
         private int id_question;
-        private string reponseText;;
+        private string reponseText;
         private Metier metier;
 
         public ReponseOrientation(int id, int id_question, string reponseText, Metier metier)

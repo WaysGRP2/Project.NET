@@ -32,7 +32,7 @@ namespace Projet_Middleware.Groupe_de_processus
         {
             if (msg.Invoke == "Envoyer_Mail")
                 msg.Invoke = "WF_Envoi_Mail";
-
+            
             return msg;
         }
 
