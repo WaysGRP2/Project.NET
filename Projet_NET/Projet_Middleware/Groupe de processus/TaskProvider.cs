@@ -92,6 +92,9 @@ namespace Projet_Middleware.Groupe_de_processus
                 case "Modifier_Question_Orientation":
                             msg.Invoke = "WF_Upd_Question_O";
                 break;
+                case "Ajouter_Statistique":
+                            msg.Invoke = "WF_Add_Statistique";
+                break;
                 default:
                             msg.Invoke = msg.Invoke;
                 break;
@@ -163,6 +166,9 @@ namespace Projet_Middleware.Groupe_de_processus
 
                 case "WF_Upd_Question_O":
                             reponse.Invoke = "Modifier_Question_Orientation";
+                break;
+                case "WF_Add_Statistique":
+                            reponse.Invoke = "Ajouter_Statistique";
                 break;
                 default:
                             reponse.Invoke = reponse.Invoke;

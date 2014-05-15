@@ -120,5 +120,12 @@ namespace Projet_Client.Composant_de_communication
         {
             get { return ServeurTask.modifierQuestionOrientation; }
         }
+
+        private static string ajouterStatistique = "Ajouter_Statistique";
+
+        public static string AJOUTER_STATISTIQUE
+        {
+            get { return ServeurTask.modifierQuestionOrientation; }
+        }
     }
 }

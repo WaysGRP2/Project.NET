@@ -103,7 +103,7 @@ namespace Projet_Client.Composant_utilisateur
             MessageSerializable.Message msg = new MessageSerializable.Message();
             msg.Data[0] = Properties.Settings.Default.PlayerName;
             msg.Data[1] = points;
-            CT_Save_PlayerScore CT = new CT_Save_PlayerScore();
+            CT_Add_PlayerScore CT = new CT_Add_PlayerScore();
             CT.Exec(msg);
             Fenetre_Classement fq = new Fenetre_Classement();
             fq.Show();

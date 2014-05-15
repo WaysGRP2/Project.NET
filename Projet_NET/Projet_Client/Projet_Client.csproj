@@ -74,10 +74,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Composant de communication\Task.cs" />
+    <Compile Include="Composant de travail\CT_Add_Statistique.cs" />
     <Compile Include="Composant de travail\CT_EnvoyerMail.cs" />
     <Compile Include="Composant de travail\CT_Get_Classement.cs" />
     <Compile Include="Composant de travail\CT_Get_Questionnaire.cs" />
-    <Compile Include="Composant de travail\CT_Save_PlayerScore.cs" />
+    <Compile Include="Composant de travail\CT_Add_PlayerScore.cs" />
     <Compile Include="Composant de travail\IComposantTravail.cs" />
     <Compile Include="Composant utilisateur\Fenetre_Accueil.xaml.cs">
       <DependentUpon>Fenetre_Accueil.xaml</DependentUpon>

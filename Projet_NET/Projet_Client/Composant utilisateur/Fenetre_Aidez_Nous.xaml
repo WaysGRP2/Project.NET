@@ -15,13 +15,12 @@
         <Label Content="Diplôme :" HorizontalAlignment="Left" Margin="96,206,0,0" VerticalAlignment="Top"/>
         <Label Content="Type de duplôme :" HorizontalAlignment="Left" Margin="97,246,0,0" VerticalAlignment="Top"/>
         <Label Content="Adressem mail d'une personne pouvant être interessé par notre école" HorizontalAlignment="Left" Margin="76,278,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="206,129,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox  x:Name="SexeComboBox" HorizontalAlignment="Left" Margin="206,129,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Homme"/>
             <ComboBoxItem Content="Femme"/>
-            <ComboBoxItem Content="Autre"/>
         </ComboBox>
         <Label Content="Aidez-nous !" HorizontalAlignment="Left" Margin="191,0,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-        <Button Content="Terminer" HorizontalAlignment="Left" Margin="206,368,0,0" VerticalAlignment="Top" Width="136"/>
+        <Button Content="Terminer" HorizontalAlignment="Left" Margin="206,368,0,0" VerticalAlignment="Top" Width="136" Click="Button_Click"/>
 
     </Grid>
 </Window>

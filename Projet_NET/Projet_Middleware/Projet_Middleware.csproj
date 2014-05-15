@@ -73,6 +73,8 @@
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Add_Metier.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Add_Player.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Add_Question_Jeu.cs" />
+    <Compile Include="Couche métier\Contrôleur de workflow\WF_Add_Question_Orientation.cs" />
+    <Compile Include="Couche métier\Contrôleur de workflow\WF_Add_Statistique.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Del_Metier.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Del_Player.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Del_Question_J.cs" />

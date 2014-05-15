@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Projet_Client.Composant_de_travail;
+using MessageSerializable;
 
 namespace Projet_Client.Composant_utilisateur
 {
@@ -22,6 +24,24 @@ namespace Projet_Client.Composant_utilisateur
         public Fenetre_Aidez_Nous()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CT_Add_Statistique CT = new CT_Add_Statistique();
+
+            Message msg = new Message();
+            msg.Data[0] = this.AgeTextBox.Text;
+            if(this.SexeComboBox.SelectedValue == "Homme")
+                msg.Data[1] = true;
+            else
+                msg.Data[1] = false;
+            msg.Data[2] = this.CodePostalTextBox.Text;
+            msg.Data[3] = this.DiplomeTextBox.Text;
+            msg.Data[4] = this.TypeDiplomeTextBox.Text;
+            msg.Data[5] = this.ConnaissanceTextBox.Text;
+
+            CT.Exec(msg);
         }
     }
 }

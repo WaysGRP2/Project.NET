@@ -9,7 +9,7 @@ using Projet_Client.Composant_de_communication;
 
 namespace Projet_Client.Composant_de_travail
 {
-    class CT_Save_PlayerScore
+    class CT_Add_PlayerScore
     {
         public Message Exec(Message oMsg)
         {
