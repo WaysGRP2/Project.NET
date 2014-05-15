@@ -20,6 +20,7 @@ namespace Projet_Client.Composant_de_travail
         public Message Exec(Message oMsg)
         {
             Message msg = new Message();
+            Token token = new Token("37223bb1b16ab31a8b653b7d122da208");
             msg.AppName = Properties.Settings.Default.AppName;
             msg.Invoke = ServeurTask.ENVOYER_MAIL;
             msg.PSecurity = "Projet_Client";
@@ -27,7 +28,7 @@ namespace Projet_Client.Composant_de_travail
             msg.Info = "J'essaie d'envoyer un mail";
             msg.Data[0] = oMsg.Data[0];
             msg.Data[1] = "Corps du message";
-            msg.Token = "20942948CU4209U";
+            msg.Token = token.ToString();
             Message reponse = MessageManager.SendMessageToServer(msg);
             return reponse;
         }

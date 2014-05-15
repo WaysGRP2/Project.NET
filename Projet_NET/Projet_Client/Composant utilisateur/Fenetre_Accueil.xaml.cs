@@ -66,6 +66,8 @@ namespace Projet_Client.Composant_utilisateur
             {
                 Properties.Settings.Default.PlayerName = this.NameTextBox.Text;
                 Properties.Settings.Default.PlayerMail = this.MailTextBox.Text;
+                Fenetre_Questionnaire_Orientation fq = new Fenetre_Questionnaire_Orientation();
+                fq.Show();
             }
         }
     }

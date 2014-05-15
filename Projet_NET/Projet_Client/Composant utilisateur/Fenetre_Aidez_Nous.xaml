@@ -1,0 +1,27 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="Projet_Client.Composant_utilisateur.Fenetre_Aidez_Nous"
+        Title="Fenetre_Aidez_Nous" Height="430" Width="550">
+    <Grid>
+        <TextBox x:Name="AgeTextBox" HorizontalAlignment="Left" Height="23" Margin="206,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="CodePostalTextBox" HorizontalAlignment="Left" Height="23" Margin="206,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="DiplomeTextBox" HorizontalAlignment="Left" Height="23" Margin="206,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TypeDiplomeTextBox" HorizontalAlignment="Left" Height="23" Margin="206,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="ConnaissanceTextBox" HorizontalAlignment="Left" Height="23" Margin="76,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="378"/>
+        <Label Content="Age :" HorizontalAlignment="Left" Margin="96,84,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sexe : " HorizontalAlignment="Left" Margin="96,125,0,0" VerticalAlignment="Top"/>
+        <Label Content="Code Postal :" HorizontalAlignment="Left" Margin="96,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.073,1.07"/>
+        <Label Content="Diplôme :" HorizontalAlignment="Left" Margin="96,206,0,0" VerticalAlignment="Top"/>
+        <Label Content="Type de duplôme :" HorizontalAlignment="Left" Margin="97,246,0,0" VerticalAlignment="Top"/>
+        <Label Content="Adressem mail d'une personne pouvant être interessé par notre école" HorizontalAlignment="Left" Margin="76,278,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="206,129,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Homme"/>
+            <ComboBoxItem Content="Femme"/>
+            <ComboBoxItem Content="Autre"/>
+        </ComboBox>
+        <Label Content="Aidez-nous !" HorizontalAlignment="Left" Margin="191,0,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+        <Button Content="Terminer" HorizontalAlignment="Left" Margin="206,368,0,0" VerticalAlignment="Top" Width="136"/>
+
+    </Grid>
+</Window>

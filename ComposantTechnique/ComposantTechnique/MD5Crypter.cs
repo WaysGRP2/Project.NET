@@ -10,22 +10,16 @@ namespace ComposantTechnique
 {
     public class MD5Crypter
     {
-        public Message Encrypt(Message msg)
+        public string Encrypt(string msg)
         {
-            if (msg.Data[0].GetType() == typeof(string))
-            {
-                Console.WriteLine("Objet de type string requis, calcule du Hash MD5 impossible.");
-                msg.Statut = false;
-                return msg;
-            }
-            byte[] results;
-            System.Text.UTF8Encoding UTF8 = new System.Text.UTF8Encoding();
-            MD5CryptoServiceProvider HashProvider = new MD5CryptoServiceProvider();
+            byte[] encodedPassword = new UTF8Encoding().GetBytes(msg);
 
-            results = HashProvider.ComputeHash(UTF8.GetBytes((string)msg.Data[0]));
-            msg.Data[0] = results;
-            msg.Statut = true;
-            return msg;
+            byte[] hash = ((HashAlgorithm)CryptoConfig.CreateFromName("MD5")).ComputeHash(encodedPassword);
+
+            string encoded = BitConverter.ToString(hash)
+               .Replace("-", string.Empty)
+               .ToLower();
+            return encoded;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<Window x:Class="Projet_Client.Composant_utilisateur.Fenetre_Questionnaire_Jeu"
+﻿<Window x:Class="Projet_Client.Composant_utilisateur.Fenetre_Questionnaire_Orientation"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Questionnaire" Height="430" Width="550">
@@ -12,7 +12,7 @@
         <RadioButton x:Name="Question2Button" Content="Intitulé question 2" HorizontalAlignment="Left" Margin="72,184,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="Question3Button" Content="Intitulé question 3" HorizontalAlignment="Left" Margin="72,238,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="Question4Button" Content="Intitulé question 4" HorizontalAlignment="Left" Margin="72,291,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="HelpButton" Content="Aidez-nous et gagnez plus de points !" HorizontalAlignment="Left" Margin="319,25,0,0" VerticalAlignment="Top" Width="213" Click="HelpButton_Click"/>
 
     </Grid>
 </Window>
+

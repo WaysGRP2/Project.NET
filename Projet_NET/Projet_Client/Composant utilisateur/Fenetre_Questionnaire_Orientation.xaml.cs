@@ -4,25 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using Projet_Client.Composant_de_travail;
 using ComposantTechnique.Objets_en_base;
-using System.Reflection;
 
 namespace Projet_Client.Composant_utilisateur
 {
     /// <summary>
-    /// Logique d'interaction pour Questionnaire.xaml
+    /// Logique d'interaction pour Fenetre_Questionnaire_Orientation.xaml
     /// </summary>
-    public partial class Fenetre_Questionnaire_Jeu : Window
+    public partial class Fenetre_Questionnaire_Orientation : Window
     {
-        private QuestionJeu[] questionnaire;
+        private QuestionOrientation[] questionnaire;
         private int index = 0;
         private int maxIndex;
-        private ReponseJeu[] reponses;
+        private ReponseOrientation[] reponses;
         private System.Windows.Controls.RadioButton[] reponseButtons;
-        private bool helped = false;
 
-        public Fenetre_Questionnaire_Jeu()
+        public Fenetre_Questionnaire_Orientation()
         {
             InitializeComponent();
 
@@ -35,12 +40,12 @@ namespace Projet_Client.Composant_utilisateur
 
             CT_Get_Questionnaire CT = new CT_Get_Questionnaire();
             MessageSerializable.Message msg = new MessageSerializable.Message();
-            msg.Data[0] = CT_Get_Questionnaire.QuestionnaireType.Jeu;
-            this.questionnaire = (QuestionJeu[])CT.Exec(msg).Data[0];
+            msg.Data[0] = CT_Get_Questionnaire.QuestionnaireType.Orientation;
+            this.questionnaire = (QuestionOrientation[])CT.Exec(msg).Data[0];
             if (this.questionnaire == null)
                 return;
             this.maxIndex = this.questionnaire.Length - 1;
-            this.reponses = new ReponseJeu[this.questionnaire.Length];
+            this.reponses = new ReponseOrientation[this.questionnaire.Length];
             this.QuestionProgressBar.Minimum = 1;
             this.QuestionProgressBar.Maximum = this.maxIndex + 1;
             this.UpdateQuestion();
@@ -88,29 +93,6 @@ namespace Projet_Client.Composant_utilisateur
             }
         }
 
-        private int DoCorrection()
-        {
-            int points = 0;
-            if (this.helped)
-                points = 2;
-            foreach(ReponseJeu rep in this.reponses)
-            {
-                Projet_Client.Composant_de_communication.MessageManager.Debug("CORRECTION : " + rep.ReponseText + "  correct: " + rep.IsCorrect );
-                if (rep.IsCorrect)
-                    points += rep.Points;
-            }
-            MessageBox.Show("Félicitation " + Properties.Settings.Default.PlayerName + " tu as " + points + " points !");
-            MessageSerializable.Message msg = new MessageSerializable.Message();
-            msg.Data[0] = Properties.Settings.Default.PlayerName;
-            msg.Data[1] = points;
-            CT_Save_PlayerScore CT = new CT_Save_PlayerScore();
-            CT.Exec(msg);
-            Fenetre_Classement fq = new Fenetre_Classement();
-            fq.Show();
-            this.Close();
-            return points;
-        }
-
         private void SuivButton_Click(object sender, RoutedEventArgs e)
         {
             if (this.SaveReponses())
@@ -144,12 +126,31 @@ namespace Projet_Client.Composant_utilisateur
             }
         }
 
-        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        private void DoCorrection()
         {
-            Fenetre_Aidez_Nous fq = new Fenetre_Aidez_Nous();
-            fq.Show();
+            Metier[] metiers = new Metier[this.reponses.Length];
 
-            this.helped = true;
+            for(int i = 0; i<this.reponses.Length; i++)
+            {
+                ReponseOrientation rep = this.reponses[i];
+                metiers[i] = rep.Metier;
+            }
+
+            var query = metiers.GroupBy(item => item).OrderByDescending(g => g.Count()).Select(g => g.Key).First();
+            MessageBox.Show("Resultat: "+ query.Intitule);
+            this.Close();
+        }
+
+        class ItemCorrection
+        {
+            public Metier Metier;
+            public int Count;
+
+            public ItemCorrection(Metier m)
+            {
+                this.Metier = m;
+                this.Count = 1;
+            }
         }
     }
 }

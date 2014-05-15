@@ -12,18 +12,24 @@ namespace Projet_Client.Composant_de_travail
 {
     class CT_Get_Questionnaire : IComposantTravail
     {
+        public enum QuestionnaireType
+        {
+            Jeu,
+            Orientation
+        }
+
         public Message Exec(Message oMsg)
         {
-            Fenetre_Questionnaire_Jeu.QuestionnaireType type = (Fenetre_Questionnaire_Jeu.QuestionnaireType)oMsg.Data[0];
+            QuestionnaireType type = (QuestionnaireType)oMsg.Data[0];
             Message msg = new Message();
-            
+            Token token = new Token("37223bb1b16ab31a8b653b7d122da208");
             switch (type)
             {
-                case Fenetre_Questionnaire_Jeu.QuestionnaireType.Jeu:
+                case QuestionnaireType.Jeu:
                     msg.Invoke = ServeurTask.AFFICHER_QUESTION_JEU;
                     break;
 
-                case Fenetre_Questionnaire_Jeu.QuestionnaireType.Orientation:
+                case QuestionnaireType.Orientation:
                     msg.Invoke = ServeurTask.AFFICHER_QUESTION_ORIENTATION;
                     break;
             }
@@ -31,7 +37,7 @@ namespace Projet_Client.Composant_de_travail
             msg.PSecurity = "Projet_Client";
             msg.Statut = false;
             msg.Info = "Je veux répupérer le questionnaire";
-            msg.Token = "20942948CU4209U";
+            msg.Token = token.ToString();
             Message reponse = MessageManager.SendMessageToServer(msg);
             return reponse;
         }
