@@ -45,7 +45,6 @@
     <Compile Include="MD5Crypter.cs" />
     <Compile Include="Objets en base\Joueur.cs" />
     <Compile Include="Objets en base\Metier.cs" />
-    <Compile Include="Objets en base\ObjetEnBase.cs" />
     <Compile Include="Objets en base\QuestionJeu.cs" />
     <Compile Include="Objets en base\QuestionOrientation.cs" />
     <Compile Include="Objets en base\ReponseJeu.cs" />

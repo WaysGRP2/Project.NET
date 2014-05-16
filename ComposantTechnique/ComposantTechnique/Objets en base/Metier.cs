@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace ComposantTechnique.Objets_en_base
 {
     [Serializable()]
-    public class Metier : ObjetEnBase, ISerializable
+    public class Metier : ISerializable
     {
         public int id;
         private string intitule;

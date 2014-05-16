@@ -24,7 +24,7 @@ namespace Projet_Middleware.Composant_Serveur
             // Dns.GetHostName returns the name of the 
             // host running the application.
             IPHostEntry ipHostInfo = Dns.Resolve(Dns.GetHostName());
-            IPAddress ipAddress = ipHostInfo.AddressList[0];
+            IPAddress ipAddress = IPAddress.Parse("127.0.0.1");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 11000);
 
             // Create a TCP/IP socket.
@@ -49,7 +49,7 @@ namespace Projet_Middleware.Composant_Serveur
                     // An incoming connection needs to be processed.
                     while (true)
                     {
-                        bytes = new byte[1024];
+                        bytes = new byte[16384];
                         Program.Debug("Reception d'un message... Réception.");
                         handler.Receive(bytes);
                         Program.Debug("Reception d'un message... Désérilalization.");

@@ -83,6 +83,7 @@
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Get_Classement.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Get_Questions_Jeu.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Get_Questions_Orientation.cs" />
+    <Compile Include="Couche métier\Contrôleur de workflow\WF_Upd_Mail.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Upd_Metier.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Upd_PlayerScore.cs" />
     <Compile Include="Couche métier\Contrôleur de workflow\WF_Upd_Player.cs" />

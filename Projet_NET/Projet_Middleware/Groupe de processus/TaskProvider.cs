@@ -37,12 +37,24 @@ namespace Projet_Middleware.Groupe_de_processus
                            msg.Invoke = "WF_Envoi_Mail";
                 break;
 
+                case "Modifier_Mail":
+                            msg.Invoke = "WF_Upd_Mail";
+                break;
+
                 case "Ajouter_Metier":
                            msg.Invoke = "WF_Add_Metier";
                 break;
 
                 case "Ajouter_Joueur":
                             msg.Invoke = "WF_Add_Player";
+                break;
+
+                case "Ajouter_Question_Jeu":
+                            msg.Invoke = "WF_Add_Question_Jeu";
+                break;
+
+                case "Ajouter_Question_Orientation":
+                            msg.Invoke = "WF_Add_Question_Orientation";
                 break;
 
                 case "Supprimer_Joueur":
@@ -92,6 +104,7 @@ namespace Projet_Middleware.Groupe_de_processus
                 case "Modifier_Question_Orientation":
                             msg.Invoke = "WF_Upd_Question_O";
                 break;
+
                 case "Ajouter_Statistique":
                             msg.Invoke = "WF_Add_Statistique";
                 break;
@@ -112,12 +125,24 @@ namespace Projet_Middleware.Groupe_de_processus
                             reponse.Invoke = "Envoyer_Mail";
                 break;
 
+                case "WF_Upd_Mail":
+                            reponse.Invoke = "Modifier_Mail";
+                break;
+
                 case "WF_Add_Metier":
                             reponse.Invoke = "Ajouter_Metier";
                 break;
 
                 case "WF_Add_Player":
                             reponse.Invoke = "Ajouter_Joueur";
+                break;
+
+                case "WF_Add_Question_Jeu":
+                            reponse.Invoke = "Ajouter_Question_Jeu";
+                break;
+
+                case "WF_Add_Question_Orientation":
+                            reponse.Invoke = "Ajouter_Question_Orientation";
                 break;
 
                 case "WF_Del_Joueur":

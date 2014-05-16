@@ -29,6 +29,19 @@ namespace Projet_Client.Composant_de_communication
             get { return ServeurTask.ajouterJoueur; }
         }
 
+        private static string ajouterQuestionJ = "Ajouter_Question_Jeu";
+
+        public static string AJOUTER_QUESTION_JEU
+        {
+            get { return ServeurTask.ajouterQuestionJ; }
+        }
+
+        private static string ajouterQuestionO = "Ajouter_Question_Orientation";
+
+        public static string AJOUTER_QUESTION_ORIENTATION
+        {
+            get { return ServeurTask.ajouterQuestionO; }
+        }
         
         private static string supprimerMetier = "Supprimer_Metier";
 
@@ -126,6 +139,13 @@ namespace Projet_Client.Composant_de_communication
         public static string AJOUTER_STATISTIQUE
         {
             get { return ServeurTask.modifierQuestionOrientation; }
+        }
+
+        private static string modifierMail = "Modifier_Mail";
+
+        public static string MODIFIER_MAIL
+        {
+            get { return ServeurTask.modifierMail; }
         }
     }
 }

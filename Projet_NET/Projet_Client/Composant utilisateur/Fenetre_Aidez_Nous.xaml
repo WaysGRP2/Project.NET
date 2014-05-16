@@ -14,7 +14,7 @@
         <Label Content="Code Postal :" HorizontalAlignment="Left" Margin="96,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.073,1.07"/>
         <Label Content="Diplôme :" HorizontalAlignment="Left" Margin="96,206,0,0" VerticalAlignment="Top"/>
         <Label Content="Type de duplôme :" HorizontalAlignment="Left" Margin="97,246,0,0" VerticalAlignment="Top"/>
-        <Label Content="Adressem mail d'une personne pouvant être interessé par notre école" HorizontalAlignment="Left" Margin="76,278,0,0" VerticalAlignment="Top"/>
+        <Label Content="D'où viennent vos connaissances en informatique (ex: forum, tutos, ect)" HorizontalAlignment="Left" Margin="76,278,0,0" VerticalAlignment="Top"/>
         <ComboBox  x:Name="SexeComboBox" HorizontalAlignment="Left" Margin="206,129,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Homme"/>
             <ComboBoxItem Content="Femme"/>

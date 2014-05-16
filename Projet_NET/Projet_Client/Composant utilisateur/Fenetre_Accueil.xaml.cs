@@ -21,6 +21,10 @@ namespace Projet_Client.Composant_utilisateur
     /// </summary>
     public partial class Fenetre_Accueil : Window
     {
+        private Fenetre_Admin fa;
+        private Fenetre_Questionnaire_Jeu fqj;
+        private Fenetre_Questionnaire_Orientation fqo;
+
         public Fenetre_Accueil()
         {
             InitializeComponent();
@@ -45,7 +49,7 @@ namespace Projet_Client.Composant_utilisateur
 
         private void AdminButton_Click(object sender, RoutedEventArgs e)
         {
-            Fenetre_Admin fa =  new Fenetre_Admin();
+            fa =  new Fenetre_Admin();
             fa.Show();
         }
 
@@ -55,8 +59,8 @@ namespace Projet_Client.Composant_utilisateur
             {
                 Properties.Settings.Default.PlayerName = this.NameTextBox.Text;
                 Properties.Settings.Default.PlayerMail = this.MailTextBox.Text;
-                Fenetre_Questionnaire_Jeu fq = new Fenetre_Questionnaire_Jeu();
-                fq.Show();
+                fqj = new Fenetre_Questionnaire_Jeu();
+                fqj.Show();
             }
         }
 
@@ -66,8 +70,8 @@ namespace Projet_Client.Composant_utilisateur
             {
                 Properties.Settings.Default.PlayerName = this.NameTextBox.Text;
                 Properties.Settings.Default.PlayerMail = this.MailTextBox.Text;
-                Fenetre_Questionnaire_Orientation fq = new Fenetre_Questionnaire_Orientation();
-                fq.Show();
+                fqo = new Fenetre_Questionnaire_Orientation();
+                fqo.Show();
             }
         }
     }

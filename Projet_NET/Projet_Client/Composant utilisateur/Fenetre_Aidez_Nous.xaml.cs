@@ -32,7 +32,7 @@ namespace Projet_Client.Composant_utilisateur
 
             Message msg = new Message();
             msg.Data[0] = this.AgeTextBox.Text;
-            if(this.SexeComboBox.SelectedValue == "Homme")
+            if(this.SexeComboBox.Text == "Homme")
                 msg.Data[1] = true;
             else
                 msg.Data[1] = false;

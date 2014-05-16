@@ -10,7 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace ComposantTechnique.Objets_en_base
 {
     [Serializable()]
-    public class Joueur : ObjetEnBase, ISerializable
+    public class Joueur : ISerializable
     {
         public int id;
         private string nom;

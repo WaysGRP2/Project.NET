@@ -70,5 +70,29 @@ namespace ComposantTechnique
             else
                 return null;
         }
+
+        public static MessageSerializable.Message ModifierNode(MessageSerializable.Message msg)
+        {
+            string[] nodes = new string[2];
+            string[] mails = new string[2];
+
+            nodes = (string[])msg.Data[0];
+            mails = (string[])msg.Data[1];
+
+            //on crée un objet XmlDocument
+            XmlDocument doc = new XmlDocument();
+
+            //on charge le fichier XML
+            doc.Load(SMTP_CONFIG_PATH);
+
+            for (int i = 0; i < nodes.Length; i++)
+            {
+                doc.DocumentElement.SelectSingleNode("/Config/" + nodes[i]).InnerText = mails[i];
+            }
+
+            doc.Save(SMTP_CONFIG_PATH);
+
+            return msg;
+        }
     }
 }

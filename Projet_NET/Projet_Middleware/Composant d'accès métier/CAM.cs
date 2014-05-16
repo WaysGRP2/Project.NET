@@ -12,9 +12,8 @@ namespace Projet_Middleware.Composant_d_accès_métier
 {
     class CAM
     {
-        string namaspaceWF; // Namespace vers le contrôleur de workflow
+        string namaspaceWF;
 
-        /// <summary>CAM est la classe qui va executer la bonne demande en fonction du message.</summary>
         public CAM()
         {
             this.namaspaceWF = "Projet_Middleware.Couche_métier.Contrôleur_de_workflow";
@@ -24,7 +23,7 @@ namespace Projet_Middleware.Composant_d_accès_métier
         {
             if (!string.IsNullOrEmpty(msg.Invoke))
             {
-                string classeApp = msg.Invoke;// Invoke contient le nom du workflow a utiliser
+                string classeApp = msg.Invoke; // Invoke contient le nom du workflow a utiliser
 
                 Assembly assembly = Assembly.GetExecutingAssembly();
                 Type typeClasse = assembly.GetType(this.namaspaceWF +  "." + classeApp);

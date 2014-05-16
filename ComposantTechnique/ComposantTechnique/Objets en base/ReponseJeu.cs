@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace ComposantTechnique.Objets_en_base
 {
     [Serializable()]
-    public class ReponseJeu : ObjetEnBase, ISerializable
+    public class ReponseJeu : ISerializable
     {
         public int id;
         private int id_question;

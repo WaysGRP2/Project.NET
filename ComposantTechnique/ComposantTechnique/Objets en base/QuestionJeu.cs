@@ -6,8 +6,9 @@ using System.Runtime.Serialization;
 namespace ComposantTechnique.Objets_en_base
 {
     [Serializable()]
-    public class QuestionJeu : ObjetEnBase,ISerializable
+    public class QuestionJeu : ISerializable,IDisposable
     {
+        private bool disposed = false;
         public int id;
         private string question;
         private ReponseJeu[] reponses = new ReponseJeu[4];
@@ -45,6 +46,27 @@ namespace ComposantTechnique.Objets_en_base
             info.AddValue("question", this.question);
             info.AddValue("reponses", this.reponses);
             info.AddValue("order", this.order);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    this.id = 0;
+                    this.question = null;
+                    this.reponses = null;
+                    this.order = 0;
+                }
+                disposed = true;
+            }
         }
 
         public void SaveInBase()

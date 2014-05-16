@@ -134,23 +134,24 @@ namespace Projet_Client.Composant_utilisateur
             {
                 ReponseOrientation rep = this.reponses[i];
                 metiers[i] = rep.Metier;
+                Projet_Client.Composant_de_communication.MessageManager.Debug(rep.ReponseText + " --> " + rep.Metier.Intitule);
             }
 
-            var query = metiers.GroupBy(item => item).OrderByDescending(g => g.Count()).Select(g => g.Key).First();
-            MessageBox.Show("Resultat: "+ query.Intitule);
+            List<Metier> metierList = metiers.Cast<Metier>().ToList<Metier>();
+
+            var groupsWithCounts = from s in metierList
+                                   group s by s into g
+                                   select new
+                                   {
+                                       Item = g.Key,
+                                       Count = g.Count()
+                                   };
+
+            var groupsSorted = groupsWithCounts.OrderByDescending(g => g.Count);
+            string mostFrequest = groupsSorted.First().Item.Intitule;
+
+            MessageBox.Show("Resultat: " + mostFrequest);
             this.Close();
-        }
-
-        class ItemCorrection
-        {
-            public Metier Metier;
-            public int Count;
-
-            public ItemCorrection(Metier m)
-            {
-                this.Metier = m;
-                this.Count = 1;
-            }
         }
     }
 }
